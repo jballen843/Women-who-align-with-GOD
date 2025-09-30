@@ -1,105 +1,207 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The 100 Pillars: A Christian Woman's Guide</title>
-    <style>
-        body { font-family: 'Georgia', serif; max-width: 800px; margin: auto; padding: 30px; line-height: 1.6; color: #333; background-color: #fcfcfc; }
-        header { text-align: center; margin-bottom: 40px; padding-bottom: 20px; border-bottom: 3px double #795548; }
-        h1 { color: #5d4037; font-size: 2.5em; margin-bottom: 10px; }
-        h2 { color: #4a148c; font-size: 1.8em; margin-top: 40px; border-bottom: 1px solid #ddd; padding-bottom: 5px; }
-        h3 { color: #5d4037; font-size: 1.4em; margin-top: 25px; }
-        .instruction-block { margin-bottom: 30px; padding: 15px; border-left: 5px solid #ffcc00; background: #fff8e1; border-radius: 5px; }
-        .instruction-block strong { color: #4a148c; font-size: 1.1em; }
-        .reasoning { font-style: italic; margin-top: 5px; }
-        .story-example { margin-top: 10px; padding-left: 15px; border-left: 2px solid #ccc; }
-        .story-example .verse { font-weight: bold; color: #795548; }
-        .application-prompt { margin-top: 10px; padding: 10px; background: #e8f5e9; border-radius: 5px; border: 1px solid #c8e6c9; font-weight: 500; }
-        footer { text-align: center; margin-top: 50px; padding-top: 20px; border-top: 1px solid #ddd; font-size: 0.8em; color: #777; }
-        .chapter-intro { margin-bottom: 25px; font-size: 1.1em; color: #555; }
-    </style>
+  <meta charset="UTF-8">
+  <title>Women Who Align with God - Sacred Quiz</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      background: linear-gradient(120deg, #f8fafc 60%, #d1c4e9 100%);
+      font-family: 'Georgia', serif;
+      color: #4e3160;
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .quiz-container {
+      background: rgba(255,255,255,0.95);
+      border-radius: 18px;
+      box-shadow: 0 8px 32px rgba(76, 50, 102, 0.15);
+      padding: 2em 2.5em;
+      max-width: 500px;
+      width: 100%;
+      text-align: center;
+      border: 2px solid #e1bee7;
+    }
+    h1 {
+      font-family: 'Papyrus', 'Georgia', serif;
+      color: #a682b8;
+      margin-bottom: 0.5em;
+      letter-spacing: 1px;
+      font-size: 2em;
+    }
+    .halo {
+      display: inline-block;
+      margin-bottom: 0.3em;
+    }
+    .question {
+      font-size: 1.2em;
+      margin: 1.2em 0 0.8em 0;
+      font-weight: bold;
+      color: #7d5192;
+    }
+    .options label {
+      display: block;
+      background: #f3e5f5;
+      margin: 0.5em 0;
+      padding: 0.6em 0.8em;
+      border-radius: 10px;
+      cursor: pointer;
+      border: 1.5px solid transparent;
+      transition: border 0.2s, background 0.2s;
+    }
+    .options input[type="radio"] {
+      margin-right: 0.7em;
+    }
+    .options label:hover, .options input[type="radio"]:checked + label {
+      border: 1.5px solid #b39ddb;
+      background: #ede7f6;
+    }
+    button {
+      margin-top: 1.5em;
+      background: linear-gradient(90deg, #c7a4ff 70%, #fffde7 100%);
+      color: #4e3160;
+      border: none;
+      padding: 0.8em 2em;
+      font-size: 1.1em;
+      border-radius: 10px;
+      cursor: pointer;
+      font-family: inherit;
+      box-shadow: 0 2px 10px #e1bee7a1;
+      transition: background 0.2s;
+    }
+    button:hover {
+      background: linear-gradient(90deg, #b39ddb 70%, #fffde7 100%);
+    }
+    .score {
+      font-size: 1.25em;
+      color: #a682b8;
+      margin-bottom: 1em;
+      font-weight: bold;
+    }
+    .answers {
+      text-align: left;
+      margin-top: 1.2em;
+      font-size: 1.05em;
+      color: #7d5192;
+    }
+    .answers strong {
+      color: #a682b8;
+    }
+    .sacred-divider {
+      border: 0;
+      height: 2px;
+      background: linear-gradient(90deg, #a682b8 40%, #fffde7 60%);
+      margin: 2em 0 1em 0;
+    }
+  </style>
 </head>
 <body>
+  <div class="quiz-container">
+    <div class="halo">👑✨</div>
+    <h1>Women Who Align with God</h1>
+    <form id="quizForm">
+      <div id="quiz"></div>
+      <button type="submit">Submit Answers</button>
+    </form>
+    <div id="results" style="display:none"></div>
+  </div>
+  <script>
+    // You can change or add questions/answers here!
+    const quizQuestions = [
+      {
+        question: "Who was known for her faith and became the mother of nations?",
+        options: ["Sarah", "Mary Magdalene", "Esther", "Ruth"],
+        answer: 0
+      },
+      {
+        question: "Which woman boldly approached the king to save her people?",
+        options: ["Deborah", "Esther", "Hannah", "Martha"],
+        answer: 1
+      },
+      {
+        question: "Who stayed with her mother-in-law and said, 'Your God will be my God'?",
+        options: ["Miriam", "Elizabeth", "Ruth", "Rebecca"],
+        answer: 2
+      },
+      {
+        question: "Who was chosen to be the mother of Jesus?",
+        options: ["Martha", "Anna", "Mary", "Priscilla"],
+        answer: 2
+      },
+      {
+        question: "Which prophetess led Israel to victory in battle?",
+        options: ["Deborah", "Tabitha", "Phoebe", "Lydia"],
+        answer: 0
+      }
+    ];
 
-    <header>
-        <h1>The 100 Pillars: A Christian Woman's Guide</h1>
-        <p><em>Transforming Your Life by the Ancient Wisdom of Scripture (KJV Reference Edition)</em></p>
-        <p>Created by Jeremey Ballen (Building Together Prosper Life 365)</p>
-        <p>Contact: <a href="mailto:prosperlife365@gmail.com">prosperlife365@gmail.com</a></p>
-    </header>
+    function renderQuiz() {
+      const quizDiv = document.getElementById('quiz');
+      quizDiv.innerHTML = '';
+      quizQuestions.forEach((q, idx) => {
+        const qDiv = document.createElement('div');
+        qDiv.className = 'question-block';
+        qDiv.innerHTML = `
+          <div class="question">${idx + 1}. ${q.question}</div>
+          <div class="options">
+            ${q.options.map((opt, oidx) => `
+              <input type="radio" name="q${idx}" id="q${idx}o${oidx}" value="${oidx}">
+              <label for="q${idx}o${oidx}">${opt}</label>
+            `).join('')}
+          </div>
+        `;
+        quizDiv.appendChild(qDiv);
+      });
+    }
 
-    <main>
+    function handleSubmit(e) {
+      e.preventDefault();
+      let score = 0;
+      let answersHTML = '';
+      let incomplete = false;
+      const userAnswers = [];
 
-        <h2>Chapter 1: Spiritual Life (Instructions 1–10)</h2>
-        <p class="chapter-intro">The foundation of a godly life rests on a personal relationship with Christ, nourished through prayer, study, and corporate worship. This vertical alignment determines all horizontal conduct.</p>
+      quizQuestions.forEach((q, idx) => {
+        const selected = document.querySelector(`input[name="q${idx}"]:checked`);
+        if (!selected) {
+          incomplete = true;
+        }
+        const ansIdx = selected ? parseInt(selected.value, 10) : null;
+        userAnswers.push(ansIdx);
+        if (ansIdx === q.answer) score++;
+      });
 
-        <div class="instruction-block">
-            <h3>1. Believe in Jesus Christ <span class="verse">(John 3:16)</span></h3>
-            <p class="reasoning"><strong>The Mandate:</strong> Salvation is the foundation of eternal life. All other instruction flows from this new life.</p>
-            <div class="story-example">
-                <p><strong>The Example (Story):</strong> The Samaritan woman at the well believed Jesus was the Christ and immediately became an evangelist, spreading the word in her city. <span class="verse">(John 4:7–29)</span></p>
-            </div>
-            <div class="application-prompt">
-                <p><strong>The Application:</strong> What is the primary testimony of your life since you believed? Are you actively sharing the joy of your salvation?</p>
-            </div>
-        </div>
+      if (incomplete) {
+        alert("Please answer all questions before submitting.");
+        return;
+      }
 
-        <div class="instruction-block">
-            <h3>2. Pray without ceasing <span class="verse">(1 Thessalonians 5:17)</span></h3>
-            <p class="reasoning"><strong>The Mandate:</strong> Prayer is the essential act of dependence that aligns her will with God’s will.</p>
-            <div class="story-example">
-                <p><strong>The Example (Story):</strong> Hannah prayed so earnestly for a son that Eli thought she was drunk. Her persistence brought forth Samuel. <span class="verse">(1 Samuel 1:10–20)</span></p>
-            </div>
-            <div class="application-prompt">
-                <p><strong>The Application:</strong> Where have you allowed yourself to become busy instead of dependent? Write down three specific areas you need to commit to unceasing prayer this week.</p>
-            </div>
-        </div>
+      answersHTML += '<hr class="sacred-divider">';
+      answersHTML += '<div class="answers"><strong>Correct Answers:</strong><br>';
+      quizQuestions.forEach((q, idx) => {
+        const userAns = userAnswers[idx];
+        const correct = q.answer === userAns;
+        answersHTML += `<div>
+          <strong>Q${idx+1}:</strong> ${q.question}<br>
+          <span style="color:${correct ? '#388e3c':'#d32f2f'}">
+            Your answer: ${userAns !== null ? q.options[userAns] : 'None'}
+            ${correct ? '✔️' : '❌'}
+          </span><br>
+          <span>Correct answer: <b>${q.options[q.answer]}</b></span>
+        </div><br>`;
+      });
+      answersHTML += "</div>";
 
-        <div class="instruction-block">
-            <h3>3. Study Scripture <span class="verse">(2 Timothy 2:15)</span></h3>
-            <p class="reasoning"><strong>The Mandate:</strong> God’s Word directs her steps, guards against deception, and furnishes her for all good works.</p>
-            <div class="story-example">
-                <p><strong>The Example (Story):</strong> Lois & Eunice instilled the Scriptures in Timothy from a child, providing the earliest foundation for his faith and ministry. <span class="verse">(2 Timothy 1:5)</span></p>
-            </div>
-            <div class="application-prompt">
-                <p><strong>The Application:</strong> How much time are you intentionally setting aside to study, not just read, the Word? Is your study time leading to true spiritual direction?</p>
-            </div>
-        </div>
+      document.getElementById('results').style.display = '';
+      document.getElementById('results').innerHTML = `<div class="score">Your Score: ${score} / ${quizQuestions.length}</div>${answersHTML}`;
+      document.getElementById('quizForm').style.display = "none";
+    }
 
-        <div class="instruction-block">
-            <h3>4. Worship in spirit and truth <span class="verse">(John 4:24)</span></h3>
-            <p class="reasoning"><strong>The Mandate:</strong> God seeks sincerity; worship must come from the heart and be based on the truth of His Word, not ritual alone.</p>
-            <div class="story-example">
-                <p><strong>The Example (Story):</strong> Mary of Bethany poured costly spikenard oil on Jesus’ feet, demonstrating sincere, extravagant worship, valuing Him above earthly wealth. <span class="verse">(John 12:3)</span></p>
-            </div>
-            <div class="application-prompt">
-                <p><strong>The Application:</strong> Identify one area of your life (time, talent, or treasure) that you are holding back from extravagant, sincere worship.</p>
-            </div>
-        </div>
-
-        <div class="instruction-block">
-            <h3>5. Bear fruit of the Spirit <span class="verse">(Galatians 5:22–23)</span></h3>
-            <p class="reasoning"><strong>The Mandate:</strong> Fruit (love, joy, peace) is the tangible evidence of living faith and the Holy Ghost's presence.</p>
-            <div class="story-example">
-                <p><strong>The Example (Story):</strong> Dorcas (Tabitha) was known for her good works and charity, showing visible fruit that defined her life. <span class="verse">(Acts 9:36)</span></p>
-            </div>
-            <div class="application-prompt">
-                <p><strong>The Application:</strong> Which fruit (love, joy, peace, longsuffering, gentleness, goodness, faith, meekness, temperance) is currently weakest in your life? Pray for the Spirit's strength in that specific area.</p>
-            </div>
-        </div>
-
-        <div class="instruction-block">
-            <h3>6. Train younger women <span class="verse">(Titus 2:4)</span></h3>
-            <p class="reasoning"><strong>The Mandate:</strong> Older women have a spiritual duty to guide younger generations in practical and righteous living.</p>
-            <div class="story-example">
-                <p><strong>The Example (Story):</strong> Naomi provided guidance, protection, and wisdom to Ruth, teaching her loyalty that led to redemption. <span class="verse">(Ruth 1–3)</span></p>
-            </div>
-            <div class="application-prompt">
-                <p><strong>The Application:</strong> Who is one younger woman in your life (family, church, or work) whom you can intentionally mentor in a practical, godly skill this month?</p>
-            </div>
-        </div>
-
-        <div class="instruction-block">
-            <h3>7. Seek wisdom <span class="verse">(Proverbs 4:7)</span></h3>
-            <p class="reasoning"><strong>The Mandate:
+    document.getElementById('quizForm').addEventListener('submit', handleSubmit);
+    renderQuiz();
+  </script>
+</body>
+</html>
