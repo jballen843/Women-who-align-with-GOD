@@ -16,60 +16,70 @@
       justify-content: center;
     }
     .quiz-container {
-      background: rgba(255,255,255,0.95);
-      border-radius: 18px;
-      box-shadow: 0 8px 32px rgba(76, 50, 102, 0.15);
-      padding: 2em 2.5em;
-      max-width: 500px;
+      background: rgba(255,255,255,0.97);
+      border-radius: 22px;
+      box-shadow: 0 8px 32px rgba(76, 50, 102, 0.20);
+      padding: 2.5em 2.5em 2em 2.5em;
+      max-width: 600px;
       width: 100%;
       text-align: center;
-      border: 2px solid #e1bee7;
+      border: 3px solid #e1bee7;
+      position: relative;
+      z-index: 2;
     }
     h1 {
       font-family: 'Papyrus', 'Georgia', serif;
       color: #a682b8;
       margin-bottom: 0.5em;
-      letter-spacing: 1px;
-      font-size: 2em;
+      letter-spacing: 1.5px;
+      font-size: 2.2em;
+      text-shadow: 0 2px 6px #fffde780;
     }
     .halo {
       display: inline-block;
-      margin-bottom: 0.3em;
+      margin-bottom: 0.4em;
+      font-size: 2em;
+      filter: drop-shadow(0 2px 6px #fffde7b0);
     }
     .question {
-      font-size: 1.2em;
-      margin: 1.2em 0 0.8em 0;
+      font-size: 1.18em;
+      margin: 1.3em 0 0.8em 0;
       font-weight: bold;
-      color: #7d5192;
+      color: #8456a7;
+      text-align: left;
+      text-shadow: 0 1px 3px #fffde7a0;
     }
     .options label {
       display: block;
       background: #f3e5f5;
       margin: 0.5em 0;
       padding: 0.6em 0.8em;
-      border-radius: 10px;
+      border-radius: 12px;
       cursor: pointer;
-      border: 1.5px solid transparent;
+      border: 2px solid transparent;
       transition: border 0.2s, background 0.2s;
+      text-align: left;
+      font-size: 1em;
+      box-shadow: 0 1px 6px #e1bee7a0;
     }
     .options input[type="radio"] {
       margin-right: 0.7em;
     }
-    .options label:hover, .options input[type="radio"]:checked + label {
-      border: 1.5px solid #b39ddb;
+    .options label:hover, .options input[type="radio":checked + label {
+      border: 2px solid #b39ddb;
       background: #ede7f6;
     }
     button {
-      margin-top: 1.5em;
+      margin-top: 1.7em;
       background: linear-gradient(90deg, #c7a4ff 70%, #fffde7 100%);
       color: #4e3160;
       border: none;
-      padding: 0.8em 2em;
+      padding: 0.9em 2.2em;
       font-size: 1.1em;
-      border-radius: 10px;
+      border-radius: 12px;
       cursor: pointer;
       font-family: inherit;
-      box-shadow: 0 2px 10px #e1bee7a1;
+      box-shadow: 0 2px 10px #e1bee7b0;
       transition: background 0.2s;
     }
     button:hover {
@@ -96,9 +106,27 @@
       background: linear-gradient(90deg, #a682b8 40%, #fffde7 60%);
       margin: 2em 0 1em 0;
     }
+    .sacred-bg {
+      position: fixed;
+      top: 0; left: 0; width: 100vw; height: 100vh;
+      z-index: 0;
+      background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=900&q=80');
+      background-size: cover;
+      background-repeat: no-repeat;
+      opacity: 0.17;
+      pointer-events: none;
+    }
+    @media (max-width: 650px) {
+      .quiz-container {
+        max-width: 96vw;
+        padding: 1.1em 0.2em 1.7em 0.2em;
+      }
+      .sacred-bg { display: none; }
+    }
   </style>
 </head>
 <body>
+  <div class="sacred-bg"></div>
   <div class="quiz-container">
     <div class="halo">👑✨</div>
     <h1>Women Who Align with God</h1>
@@ -109,33 +137,39 @@
     <div id="results" style="display:none"></div>
   </div>
   <script>
-    // You can change or add questions/answers here!
+    // 30 sacred-themed multiple choice questions about women of faith
     const quizQuestions = [
-      {
-        question: "Who was known for her faith and became the mother of nations?",
-        options: ["Sarah", "Mary Magdalene", "Esther", "Ruth"],
-        answer: 0
-      },
-      {
-        question: "Which woman boldly approached the king to save her people?",
-        options: ["Deborah", "Esther", "Hannah", "Martha"],
-        answer: 1
-      },
-      {
-        question: "Who stayed with her mother-in-law and said, 'Your God will be my God'?",
-        options: ["Miriam", "Elizabeth", "Ruth", "Rebecca"],
-        answer: 2
-      },
-      {
-        question: "Who was chosen to be the mother of Jesus?",
-        options: ["Martha", "Anna", "Mary", "Priscilla"],
-        answer: 2
-      },
-      {
-        question: "Which prophetess led Israel to victory in battle?",
-        options: ["Deborah", "Tabitha", "Phoebe", "Lydia"],
-        answer: 0
-      }
+      { question: "Who was the mother of Isaac and the wife of Abraham?", options: ["Sarah", "Rebekah", "Rachel", "Leah"], answer: 0 },
+      { question: "Which courageous queen saved her people from destruction?", options: ["Ruth", "Esther", "Deborah", "Hannah"], answer: 1 },
+      { question: "Who stayed loyal to her mother-in-law, Naomi, saying 'Your God will be my God'?", options: ["Mary", "Martha", "Ruth", "Elizabeth"], answer: 2 },
+      { question: "Who was the first woman created by God?", options: ["Sarah", "Eve", "Esther", "Deborah"], answer: 1 },
+      { question: "Who was the mother of Samuel, who prayed earnestly for a son?", options: ["Hannah", "Leah", "Mary", "Abigail"], answer: 0 },
+      { question: "Which woman became the mother of Jesus?", options: ["Mary", "Miriam", "Anna", "Lydia"], answer: 0 },
+      { question: "Who was turned into a pillar of salt when she looked back at Sodom?", options: ["Lot's wife", "Naomi", "Rachel", "Leah"], answer: 0 },
+      { question: "Who was Jacob's beloved wife and the mother of Joseph and Benjamin?", options: ["Leah", "Rebekah", "Rachel", "Dinah"], answer: 2 },
+      { question: "Who was the sister of Moses and Aaron and a prophetess?", options: ["Miriam", "Sarah", "Esther", "Huldah"], answer: 0 },
+      { question: "Which woman sat at Jesus' feet and listened to His teaching?", options: ["Martha", "Mary of Bethany", "Mary Magdalene", "Priscilla"], answer: 1 },
+      { question: "Who was the first to witness the resurrection of Jesus?", options: ["Mary Magdalene", "Joanna", "Salome", "Martha"], answer: 0 },
+      { question: "Who was the wife of Isaac and the mother of Jacob and Esau?", options: ["Rachel", "Rebekah", "Leah", "Sarah"], answer: 1 },
+      { question: "Which wise woman stopped David from avenging himself on her foolish husband, Nabal?", options: ["Abigail", "Bathsheba", "Tamar", "Rahab"], answer: 0 },
+      { question: "Who was the judge and prophetess who led Israel to victory?", options: ["Deborah", "Esther", "Jael", "Hannah"], answer: 0 },
+      { question: "Who hid the Israelite spies in Jericho, showing great faith?", options: ["Rahab", "Ruth", "Naomi", "Leah"], answer: 0 },
+      { question: "Who was the businesswoman and seller of purple in Philippi, baptized by Paul?", options: ["Phoebe", "Priscilla", "Lydia", "Lois"], answer: 2 },
+      { question: "Who was the daughter-in-law of Tamar's first husband, who later gave birth to Perez and Zerah?", options: ["Ruth", "Tamar", "Bathsheba", "Deborah"], answer: 1 },
+      { question: "Who anointed Jesus' feet with expensive perfume and wiped them with her hair?", options: ["Mary Magdalene", "Mary of Bethany", "Joanna", "Salome"], answer: 1 },
+      { question: "Who was the first convert to Christianity in Europe?", options: ["Dorcas", "Lydia", "Priscilla", "Chloe"], answer: 1 },
+      { question: "Who was the faithful grandmother of Timothy, mentioned by Paul?", options: ["Phoebe", "Lois", "Claudia", "Tabitha"], answer: 1 },
+      { question: "Who is known for her encounter with Jesus at the well, where He revealed He was the Messiah?", options: ["The Samaritan woman", "Martha", "Priscilla", "Anna"], answer: 0 },
+      { question: "Who was the wife of Aquila and helped instruct Apollos?", options: ["Priscilla", "Phoebe", "Lydia", "Chloe"], answer: 0 },
+      { question: "Who was healed by Jesus after suffering for 12 years with bleeding?", options: ["The Samaritan woman", "The woman with the issue of blood", "Anna", "Tabitha"], answer: 1 },
+      { question: "Who was the Roman deaconess commended by Paul in Romans 16?", options: ["Lydia", "Phoebe", "Priscilla", "Dorcas"], answer: 1 },
+      { question: "Who was the widow raised from the dead by Peter?", options: ["Dorcas (Tabitha)", "Anna", "Joanna", "Martha"], answer: 0 },
+      { question: "Which elderly prophetess recognized Jesus as the Messiah in the temple?", options: ["Anna", "Priscilla", "Phoebe", "Chloe"], answer: 0 },
+      { question: "Who was the mother of John the Baptist?", options: ["Elizabeth", "Mary", "Anna", "Joanna"], answer: 0 },
+      { question: "Who was the wife of Pontius Pilate, who warned him about Jesus in a dream?", options: ["Salome", "Claudia", "Joanna", "Priscilla"], answer: 1 },
+      { question: "Who was the mother of Samuel and dedicated him to the Lord's service?", options: ["Hannah", "Sarah", "Rebekah", "Leah"], answer: 0 },
+      { question: "Who was the only female judge of Israel?", options: ["Deborah", "Esther", "Ruth", "Huldah"], answer: 0 },
+      { question: "Who was the wife of Uriah and later became the mother of Solomon?", options: ["Bathsheba", "Abigail", "Tamar", "Rachel"], answer: 0 }
     ];
 
     function renderQuiz() {
