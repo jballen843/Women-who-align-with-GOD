@@ -3,101 +3,296 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Godly Woman's Financial Self-Assessment</title>
+    <title>The Godly Wife's Wisdom & Conduct Assessment (100 Points)</title>
     <style>
-        body { font-family: sans-serif; max-width: 600px; margin: auto; padding: 20px; background-color: #f4f4f9; }
-        .assessment-container { background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
-        h1 { color: #8b4513; text-align: center; border-bottom: 2px solid #8b4513; padding-bottom: 10px; }
-        h4 { color: #4b0082; margin-top: 25px; border-left: 5px solid #ffcc00; padding-left: 10px; }
-        .principle { display: flex; align-items: flex-start; margin-bottom: 15px; padding: 10px; border-radius: 5px; background: #fafafa; }
-        .principle:hover { background: #f0f0f5; }
-        input[type="checkbox"] { margin-right: 10px; transform: scale(1.5); min-height: 20px; margin-top: 3px; }
-        .score-box { text-align: center; margin: 30px 0; padding: 15px; border: 2px solid #006400; background: #e6ffe6; border-radius: 5px; font-size: 1.1em; font-weight: bold; }
-        .score-number { font-size: 2em; color: #006400; }
-        .scripture { font-size: 0.8em; color: #666; margin-top: 5px; display: block; }
+        /* --- Mobile-Optimized CSS --- */
+        body { font-family: Arial, sans-serif; line-height: 1.6; margin: 0; padding: 20px; background-color: #f4f4f9; }
+        h1, h2 { color: #38761d; text-align: center; }
+        p { margin-bottom: 15px; }
+        .question-box { margin-bottom: 20px; padding: 15px; border: 1px solid #ddd; border-radius: 8px; background-color: #ffffff; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
+        .question-box strong { display: block; margin-bottom: 10px; color: #5a5a5a; }
+        label { display: block; margin-bottom: 8px; cursor: pointer; }
+        input[type="radio"] { margin-right: 8px; }
+        .results-box { padding: 30px; background: #e6f3ff; border-radius: 8px; margin-top: 30px; text-align: center; }
+        .hidden { display: none; }
+        button { padding: 12px 25px; background-color: #38761d; color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 16px; display: block; width: 100%; max-width: 300px; margin: 20px auto 0 auto; transition: background-color 0.3s; }
+        button:hover { background-color: #275214; }
+        .attribution { text-align: center; font-size: 0.8em; color: #888; margin-top: 40px; }
     </style>
 </head>
 <body>
-    <div class="assessment-container">
-        <h1>The Godly Woman's Financial Check-In (30 Principles)</h1>
-        <p style="text-align: center; font-style: italic;">Check all points you have aligned with this week. Focus on the unchecked.</p>
 
-        <div class="score-box">
-            Total Principles Aligned: <span id="currentScore" class="score-number">0</span> / 30
+    <h1>📱 The Godly Wife's Wisdom & Conduct Assessment (100 Points)</h1>
+    <p style="text-align: center;">Answer all 30 questions to test your understanding. Click the button at the end to see the final message and contact information.</p>
+
+    <div id="assessment-form">
+        <div class="question-box">
+            <strong>Q1. Trustworthy:</strong> The primary sign that a wife is acting as a trustworthy steward is:
+            <label><input type="radio" name="Q1" value="A" required> A. She only shares financial details when forced.</label>
+            <label><input type="radio" name="Q1" value="B"> B. She manages her own separate savings account without telling her husband.</label>
+            <label><input type="radio" name="Q1" value="C"> C. Her husband fully trusts her handling of their money, with no secrets or hidden purchases.</label>
+            <label><input type="radio" name="Q1" value="D"> D. She assumes her husband should handle everything.</label>
+        </div>
+        <div class="question-box">
+            <strong>Q2. Not Wasteful:</strong> A wife who is "Not Wasteful" demonstrates this by:
+            <label><input type="radio" name="Q2" value="A" required> A. Looking carefully after household resources, ensuring they are used wisely and not carelessly wasted.</label>
+            <label><input type="radio" name="Q2" value="B"> B. Buying the cheapest possible goods, even if they are low quality and break quickly.</label>
+            <label><input type="radio" name="Q2" value="C"> C. Spending money quickly before it can be lost.</label>
+            <label><input type="radio" name="Q2" value="D"> D. Throwing out old items frequently to keep things new.</label>
+        </div>
+        <div class="question-box">
+            <strong>Q3. Content:</strong> A wife demonstrates true "Contentment" when she:
+            <label><input type="radio" name="Q3" value="A"> A. Constantly pushes her husband to earn more money for luxury items.</label>
+            <label><input type="radio" name="Q3" value="B" required> B. Is content with what the family has and does not covet unnecessary luxuries.</label>
+            <label><input type="radio" name="Q3" value="C"> C. Stops trying to improve the family's situation.</label>
+            <label><input type="radio" name="Q3" value="D"> D. Buys items to keep up with friends' possessions.</label>
+        </div>
+        <div class="question-box">
+            <strong>Q4. Faithful in Small:</strong> The standard of being "Faithful in Small" means a wife should:
+            <label><input type="radio" name="Q4" value="A"> A. Only focus on major investment decisions.</label>
+            <label><input type="radio" name="Q4" value="B" required> B. Handle small financial tasks (groceries, minor bills) with the same care as large ones.</label>
+            <label><input type="radio" name="Q4" value="C"> C. Delegate all minor bills and grocery shopping to others.</label>
+            <label><input type="radio" name="Q4" value="D"> D. Hide small purchases from her husband since they are insignificant.</label>
         </div>
 
-        <form id="financialAssessment">
-            <h4>A. Trust, Stewardship & Contentment</h4>
-            <div class="principle"><input type="checkbox" name="principle" value="1"><label>Trustworthy: No secret spending; my husband trusts my management. <span class="scripture">($Proverbs 31:11$)</span></label></div>
-            <div class="principle"><input type="checkbox" name="principle" value="2"><label>Not Wasteful: I avoid impulse buys and look well to the household's resources. <span class="scripture">($Proverbs 31:27$)</span></label></div>
-            <div class="principle"><input type="checkbox" name="principle" value="3"><label>Content: I am content with what we have and do not covet luxuries. <span class="scripture">($Hebrews 13:5$)</span></label></div>
-            <div class="principle"><input type="checkbox" name="principle" value="4"><label>Faithful in Small: I handle small bills and budgeting details with care. <span class="scripture">($Luke 16:10$)</span></label></div>
+        <div class="question-box">
+            <strong>Q5. Works Willingly:</strong> How does a wife best fulfill the principle of "Works Willingly"?
+            <label><input type="radio" name="Q5" value="A" required> A. By actively contributing to the household's well-being (through work, business, or home care) with a positive attitude.</label>
+            <label><input type="radio" name="Q5" value="B"> B. By only doing things she enjoys or that earn money.</label>
+            <label><input type="radio" name="Q5" value="C"> C. By waiting to be asked before contributing to household well-being.</label>
+            <label><input type="radio" name="Q5" value="D"> D. By delegating all household chores to her children.</label>
+        </div>
+        <div class="question-box">
+            <strong>Q6. Planner:</strong> The most responsible way a wife demonstrates being a "Planner" is to:
+            <label><input type="radio" name="Q6" value="A" required> A. Plan and prepare finances (budgeting, meal planning) in advance, not last-minute.</label>
+            <label><input type="radio" name="Q6" value="B"> B. React to crises as they arise, relying on impulse.</label>
+            <label><input type="radio" name="Q6" value="C"> C. Spend time only on long-term goals, ignoring daily logistics.</label>
+            <label><input type="radio" name="Q6" value="D"> D. Wait for income to arrive before deciding what to spend.</label>
+        </div>
+        <div class="question-box">
+            <strong>Q7. Hands-On:</strong> The quality of "Hands-On" management requires the wife to:
+            <label><input type="radio" name="Q7" value="A" required> A. Take practical action to manage and maintain the family's financial and physical stability.</label>
+            <label><input type="radio" name="Q7" value="B"> B. Simply hope for the best financial outcome without action.</label>
+            <label><input type="radio" name="Q7" value="C"> C. Pressure her husband to take care of all the practical matters.</label>
+            <label><input type="radio" name="Q7" value="D"> D. Refuse to learn how to pay bills or balance accounts.</label>
+        </div>
+        <div class="question-box">
+            <strong>Q8. Honest Trades:</strong> If a wife earns or sells, the rule of "Honest Trades" requires that:
+            <label><input type="radio" name="Q8" value="A" required> A. All her transactions are conducted with complete integrity and fairness to all parties.</label>
+            <label><input type="radio" name="Q8" value="B"> B. She keeps her profit margin as high as possible, regardless of fairness.</label>
+            <label><input type="radio" name="Q8" value="C"> C. She occasionally cuts corners to save time or money.</label>
+            <label><input type="radio" name="Q8" value="D"> D. She is vague about the cost of goods to maximize husband's appreciation.</label>
+        </div>
 
-            <h4>B. Diligence & Work Ethic</h4>
-            <div class="principle"><input type="checkbox" name="principle" value="5"><label>Works Willingly: I actively contribute value (work/home care). <span class="scripture">($Proverbs 31:13$)</span></label></div>
-            <div class="principle"><input type="checkbox" name="principle" value="6"><label>Planner: I budget and prepare financially in advance; not last-minute. <span class="scripture">($Proverbs 31:15$)</span></label></div>
-            <div class="principle"><input type="checkbox" name="principle" value="7"><label>Hands-On: I take practical action in our finances; I am not idle. <span class="scripture">($Proverbs 31:19$)</span></label></div>
-            <div class="principle"><input type="checkbox" name="principle" value="8"><label>Honest Trades: All my earning/selling transactions are done with integrity. <span class="scripture">($Proverbs 31:24$)</span></label></div>
+        <div class="question-box">
+            <strong>Q9. Wise Investor:</strong> The principle of being a "Wise Investor" demands a wife:
+            <label><input type="radio" name="Q9" value="A" required> A. Research and carefully consider major purchases before committing.</label>
+            <label><input type="radio" name="Q9" value="B"> B. Buy immediately if the item is on sale, regardless of need.</label>
+            <label><input type="radio" name="Q9" value="C"> C. Purchase the item if a close friend or family member also has it.</label>
+            <label><input type="radio" name="Q9" value="D"> D. Use credit to buy the item to avoid dipping into current cash.</label>
+        </div>
+        <div class="question-box">
+            <strong>Q10. Avoids Vanity:</strong> A wife who "Avoids Vanity" ensures that her spending habits primarily avoid:
+            <label><input type="radio" name="Q10" value="A" required> A. Wasting money on things just to impress others or show off her status.</label>
+            <label><input type="radio" name="Q10" value="B"> B. Investing in high-quality items that last.</label>
+            <label><input type="radio" name="Q10" value="C"> C. Buying any new clothes or jewelry.</label>
+            <label><input type="radio" name="Q10" value="D"> D. Never making a purchase over a small set amount.</label>
+        </div>
+        <div class="question-box">
+            <strong>Q11. Stores & Saves:</strong> The best way to "Store & Save" for the family's future is to:
+            <label><input type="radio" name="Q11" value="A" required> A. Actively and systematically save a portion of the family's resources for the future and emergencies.</label>
+            <label><input type="radio" name="Q11" value="B"> B. Keep all savings in an easily accessible jar.</label>
+            <label><input type="radio" name="Q11" value="C"> C. Rely solely on prayer for future provision without intentional action.</label>
+            <label><input type="radio" name="Q11" value="D"> D. Spend every available dollar on current wants.</label>
+        </div>
+        <div class="question-box">
+            <strong>Q12. Prepared:</strong> Being "Prepared" means that a wife ensures all necessities are covered:
+            <label><input type="radio" name="Q12" value="A" required> A. Well in advance of need (bills, clothes, food, supplies).</label>
+            <label><input type="radio" name="Q12" value="B"> B. Only after receiving a reminder from her husband.</label>
+            <label><input type="radio" name="Q12" value="C"> C. At the last minute, just before a due date.</label>
+            <label><input type="radio" name="Q12" value="D"> D. By spending heavily to stockpile items beyond reasonable necessity.</label>
+        </div>
 
-            <h4>C. Wisdom in Spending & Saving</h4>
-            <div class="principle"><input type="checkbox" name="principle" value="9"><label>Wise Investor: I research and consider purchases/investments with foresight. <span class="scripture">($Proverbs 31:16$)</span></label></div>
-            <div class="principle"><input type="checkbox" name="principle" value="10"><label>Avoids Vanity: I do not waste money just to impress or for luxury-show. <span class="scripture">($1 Timothy 2:9$)</span></label></div>
-            <div class="principle"><input type="checkbox" name="principle" value="11"><label>Stores & Saves: I actively preserve resources and save for the future. <span class="scripture">($Proverbs 21:20$)</span></label></div>
-            <div class="principle"><input type="checkbox" name="principle" value="12"><label>Prepared: I ensure all necessities are financially covered in advance. <span class="scripture">($Proverbs 31:21$)</span></label></div>
+        <div class="question-box">
+            <strong>Q13. Does Good:</strong> A wife's financial actions are intended to "Do Good" by:
+            <label><input type="radio" name="Q13" value="A" required> A. Consistently helping, not hurting, the stability and fruitfulness of her husband's labor.</label>
+            <label><input type="radio" name="Q13" value="B"> B. Only focusing on her personal financial goals.</label>
+            <label><input type="radio" name="Q13" value="C"> C. Making decisions that occasionally hurt, but mostly help, her husband’s labor.</label>
+            <label><input type="radio" name="Q13" value="D"> D. Complaining about her husband's income to motivate him to earn more.</label>
+        </div>
+        <div class="question-box">
+            <strong>Q14. Brings Honour:</strong> How does a wife's conduct "Bring Honour" to her husband's reputation?
+            <label><input type="radio" name="Q14" value="A" required> A. By maintaining prudent financial conduct (e.g., avoiding debt/gossip).</label>
+            <label><input type="radio" name="Q14" value="B"> B. By bragging about his earnings to her friends.</label>
+            <label><input type="radio" name="Q14" value="C"> C. By demanding luxury items that reflect a high status.</label>
+            <label><input type="radio" name="Q14" value="D"> D. By ensuring her husband is always the one to pay for everything in public.</label>
+        </div>
+        <div class="question-box">
+            <strong>Q15. Avoids Quarrels:</strong> To "Avoid Quarrels," especially about money, a wife should:
+            <label><input type="radio" name="Q15" value="A" required> A. Avoid arguments and contentious talk about money that destroy household peace and progress.</label>
+            <label><input type="radio" name="Q15" value="B"> B. Never discuss finances with her husband.</label>
+            <label><input type="radio" name="Q15" value="C"> C. Always demand that she gets her way in financial disputes.</label>
+            <label><input type="radio" name="Q15" value="D"> D. Use silence and passive aggression when she disagrees with a purchase.</label>
+        </div>
+        <div class="question-box">
+            <strong>Q16. Discreet:</strong> The principle of being "Discreet" in financial matters requires a wife to:
+            <label><input type="radio" name="Q16" value="A" required> A. Keep her family's finances, struggles, and specific incomes private and not broadcast them to outsiders.</label>
+            <label><input type="radio" name="Q16" value="B"> B. Share all her family's financial struggles with her close friends for advice.</label>
+            <label><input type="radio" name="Q16" value="C"> C. Post all major purchases on social media.</label>
+            <label><input type="radio" name="Q16" value="D"> D. Always tell her parents exactly how much her husband makes.</label>
+        </div>
 
-            <h4>D. Conduct That Impacts Finances</h4>
-            <div class="principle"><input type="checkbox" name="principle" value="13"><label>Does Good: My financial actions support and help my husband's work. <span class="scripture">($Proverbs 31:12$)</span></label></div>
-            <div class="principle"><input type="checkbox" name="principle" value="14"><label>Brings Honour: My financial conduct elevates my husband's reputation. <span class="scripture">($Proverbs 31:23$)</span></label></div>
-            <div class="principle"><input type="checkbox" name="principle" value="15"><label>Avoids Quarrels: I avoid strife about money that kills progress. <span class="scripture">($Proverbs 21:9$)</span></label></div>
-            <div class="principle"><input type="checkbox" name="principle" value="16"><label>Discreet: I keep our family's specific finances private from outsiders. <span class="scripture">($Titus 2:5$)</span></label></div>
+        <div class="question-box">
+            <strong>Q17. Not Lazy:</strong> The core issue with being "Not Lazy" in contribution is avoiding the expectation that:
+            <label><input type="radio" name="Q17" value="A" required> A. Her husband should carry everything while she refuses to contribute (if physically able).</label>
+            <label><input type="radio" name="Q17" value="B"> B. Her husband must help with household chores.</label>
+            <label><input type="radio" name="Q17" value="C"> C. She must earn more money than her husband.</label>
+            <label><input type="radio" name="Q17" value="D"> D. She should avoid all relaxation or leisure time.</label>
+        </div>
+        <div class="question-box">
+            <strong>Q18. Not Greedy:</strong> A wife demonstrates she is "Not Greedy" by ensuring she does not:
+            <label><input type="radio" name="Q18" value="A" required> A. Manipulate or pressure her husband toward dishonest or quick-rich, unethical schemes.</label>
+            <label><input type="radio" name="Q18" value="B"> B. Earn extra income or start a business.</label>
+            <label><input type="radio" name="Q18" value="C"> C. Buy any lottery tickets or participate in raffles.</label>
+            <label><input type="radio" name="Q18" value="D"> D. Set any long-term financial goals for the family.</label>
+        </div>
+        <div class="question-box">
+            <strong>Q19. Avoids Debt:</strong> Actively "Avoids Debt" means a wife should steer clear of:
+            <label><input type="radio" name="Q19" value="A" required> A. Credit addiction, reckless borrowing, and getting caught in debt traps.</label>
+            <label><input type="radio" name="Q19" value="B"> B. All mortgages and student loans.</label>
+            <label><input type="radio" name="Q19" value="C"> C. Using a debit card for purchases.</label>
+            <label><input type="radio" name="Q19" value="D"> D. Saving money in a traditional bank account.</label>
+        </div>
+        <div class="question-box">
+            <strong>Q20. No Manipulation:</strong> The principle "No Manipulation" primarily guards against:
+            <label><input type="radio" name="Q20" value="A" required> A. Pressuring or guilt-tripping her husband into making poor financial decisions against his better judgment.</label>
+            <label><input type="radio" name="Q20" value="B"> B. Asking her husband for help with a difficult task.</label>
+            <label><input type="radio" name="Q20" value="C"> C. Guiding the children's activities.</label>
+            <label><input type="radio" name="Q20" value="D"> D. Expressing a desire for a new, needed household item.</label>
+        </div>
 
-            <h4>E. Guardrails Against Financial Sin</h4>
-            <div class="principle"><input type="checkbox" name="principle" value="17"><label>Not Lazy: I contribute my effort and do not expect to be carried. <span class="scripture">($2 Thessalonians 3:10$)</span></label></div>
-            <div class="principle"><input type="checkbox" name="principle" value="18"><label>Not Greedy: I do not pressure my husband toward dishonest gains. <span class="scripture">($1 Timothy 6:9-10$)</span></label></div>
-            <div class="principle"><input type="checkbox" name="principle" value="19"><label>Avoids Debt: I actively resist credit addiction and reckless borrowing. <span class="scripture">($Romans 13:8$)</span></label></div>
-            <div class="principle"><input type="checkbox" name="principle" value="20"><label>No Manipulation: I do not guilt my husband into poor financial decisions. <span class="scripture">($Proverbs 7:21$)</span></label></div>
+        <div class="question-box">
+            <strong>Q21. Generous:</strong> A demonstration of "Generous" conduct requires a wife's giving to be:
+            <label><input type="radio" name="Q21" value="A" required> A. Responsible, including giving, tithing, and helping others responsibly.</label>
+            <label><input type="radio" name="Q21" value="B"> B. Only demonstrated by helping friends and family, ignoring tithes.</label>
+            <label><input type="radio" name="Q21" value="C"> C. Kept secret from her husband.</label>
+            <label><input type="radio" name="Q21" value="D"> D. Done only when she has a large surplus of money.</label>
+        </div>
+        <div class="question-box">
+            <strong>Q22. Prudent:</strong> A wife demonstrates she is "Prudent" in all money decisions by using:
+            <label><input type="radio" name="Q22" value="A" required> A. Foresight and wisdom, not mere impulse.</label>
+            <label><input type="radio" name="Q22" value="B"> B. Mere impulse, trusting her instincts immediately.</label>
+            <label><input type="radio" name="Q22" value="C"> C. Emotional reactions to sales and marketing.</label>
+            <label><input type="radio" name="Q22" value="D"> D. Only her husband's judgment.</label>
+        </div>
+        <div class="question-box">
+            <strong>Q23. Honour Through Grace:</strong> Managing money with "Honour Through Grace" means a wife avoids:
+            <label><input type="radio" name="Q23" value="A" required> A. Nagging, demanding, or managing resources with hostility or pride.</label>
+            <label><input type="radio" name="Q23" value="B"> B. Discussing any financial matters.</label>
+            <label><input type="radio" name="Q23" value="C"> C. Making any contribution to the household.</label>
+            <label><input type="radio" name="Q23" value="D"> D. Telling her husband when bills are due.</label>
+        </div>
+        <div class="question-box">
+            <strong>Q24. Strength & Foresight:</strong> A wife's confidence in financial matters should come from:
+            <label><input type="radio" name="Q24" value="A" required> A. Building long-term stability and exercising foresight (Proverbs 31:25).</label>
+            <label><input type="radio" name="Q24" value="B"> B. External praise from friends and family.</label>
+            <label><input type="radio" name="Q24" value="C"> C. Her immediate, high bank balance.</label>
+            <label><input type="radio" name="Q24" value="D"> D. Her husband's daily affirmation.</label>
+        </div>
 
-            <h4>F. Godly Fruits in Money Matters</h4>
-            <div class="principle"><input type="checkbox" name="principle" value="21"><label>Generous: I give, tithe, and share with others responsibly. <span class="scripture">($Acts 9:36$)</span></label></div>
-            <div class="principle"><input type="checkbox" name="principle" value="22"><label>Prudent: I use calculated foresight and wisdom, not mere emotion. <span class="scripture">($Proverbs 19:14$)</span></label></div>
-            <div class="principle"><input type="checkbox" name="principle" value="23"><label>Honour Through Grace: I manage with humility and avoid nagging about money. <span class="scripture">($Proverbs 11:16$)</span></label></div>
-            <div class="principle"><input type="checkbox" name="principle" value="24"><label>Strength & Foresight: My confidence comes from building long-term stability. <span class="scripture">($Proverbs 31:25$)</span></label></div>
+        <div class="question-box">
+            <strong>Q25. Guides the House:</strong> The wife fulfills the duty to "Guide the House" by:
+            <label><input type="radio" name="Q25" value="A" required> A. Keeping order by managing the household's bills, food, and necessities.</label>
+            <label><input type="radio" name="Q25" value="B"> B. Controlling all the family's assets and telling her husband what to do.</label>
+            <label><input type="radio" name="Q25" value="C"> C. Only focusing on spiritual matters, ignoring bills and food.</label>
+            <label><input type="radio" name="Q25" value="D"> D. Ensuring the home is perfectly clean 24/7.</label>
+        </div>
+        <div class="question-box">
+            <strong>Q26. Keeps the Home:</strong> A wife "Keeps the Home" by actively guarding resources and ensuring they are:
+            <label><input type="radio" name="Q26" value="A" required> A. Not wasted or squandered, preserving the family's resources.</label>
+            <label><input type="radio" name="Q26" value="B"> B. Consumed as soon as they are purchased.</label>
+            <label><input type="radio" name="Q26" value="C"> C. Hidden from her husband.</label>
+            <label><input type="radio" name="Q26" value="D"> D. Only used for her personal expenses.</label>
+        </div>
+        <div class="question-box">
+            <strong>Q27. Unity with Husband:</strong> A wife demonstrates "Unity with Husband" by ensuring she:
+            <label><input type="radio" name="Q27" value="A" required> A. Works with her husband's leadership and does not undermine his financial decisions.</label>
+            <label><input type="radio" name="Q27" value="B"> B. Always manages all money without his input.</label>
+            <label><input type="radio" name="Q27" value="C"> C. Demands equal say in all decisions regardless of their roles.</label>
+            <label><input type="radio" name="Q27" value="D"> D. Makes all financial decisions quickly on her own.</label>
+        </div>
 
-            <h4>G. NT Household Alignment</h4>
-            <div class="principle"><input type="checkbox" name="principle" value="25"><label>Guides the House: I maintain order (bills, food, priorities). <span class="scripture">($1 Timothy 5:14$)</span></label></div>
-            <div class="principle"><input type="checkbox" name="principle" value="26"><label>Keeps the Home: I actively guard our home resources, using them wisely. <span class="scripture">($Titus 2:5$)</span></label></div>
-            <div class="principle"><input type="checkbox" name="principle" value="27"><label>Unity: I work with my husband’s leadership; I do not undermine his decisions. <span class="scripture">($Colossians 3:18$)</span></label></div>
-
-            <h4>H. Long-Term Fruits</h4>
-            <div class="principle"><input type="checkbox" name="principle" value="28"><label>Builds Wealth: I seek to multiply income opportunities instead of draining them. <span class="scripture">($Proverbs 31:18$)</span></label></div>
-            <div class="principle"><input type="checkbox" name="principle" value="29"><label>Stability for Children: My planning and example bless my children's future. <span class="scripture">($Proverbs 31:28$)</span></label></div>
-            <div class="principle"><input type="checkbox" name="principle" value="30"><label>Wise Words: I use kindness and wisdom when discussing money; I do not shame. <span class="scripture">($Proverbs 31:26$)</span></label></div>
-        </form>
-
+        <div class="question-box">
+            <strong>Q28. Builds Wealth:</strong> A wife seeks to "Build Wealth" by focusing on:
+            <label><input type="radio" name="Q28" value="A" required> A. Seeking to multiply income opportunities and avoiding draining the family’s resources.</label>
+            <label><input type="radio" name="Q28" value="B"> B. Quick-rich schemes and high-risk gambles.</label>
+            <label><input type="radio" name="Q28" value="C"> C. Spending as much as possible to stimulate the economy.</label>
+            <label><input type="radio" name="Q28" value="D"> D. Keeping all her earnings entirely separate from the family unit.</label>
+        </div>
+        <div class="question-box">
+            <strong>Q29. Stability for Children:</strong> The wife's planning and saving set a legacy primarily for:
+            <label><input type="radio" name="Q29" value="A" required> A. Setting a strong, blessed example for her children's future stability and wisdom.</label>
+            <label><input type="radio" name="Q29" value="B"> B. Early retirement on her own.</label>
+            <label><input type="radio" name="Q29" value="C"> C. Being recognized as the best shopper in town.</label>
+            <label><input type="radio" name="Q29" value="D"> D. Ensuring her children never have to discuss money.</label>
+        </div>
+        <div class="question-box">
+            <strong>Q30. Wise Words:</strong> When discussing finances, a wife uses "Wise Words" by:
+            <label><input type="radio" name="Q30" value="A" required> A. Using kindness and wisdom, avoiding shaming or belittling language.</label>
+            <label><input type="radio" name="Q30" value="B"> B. Allowing emotions to dictate the tone.</label>
+            <label><input type="radio" name="Q30" value="C"> C. Always shaming or belittling her husband when money is tight.</label>
+            <label><input type="radio" name="Q30" value="D"> D. Refusing to discuss any issues.</label>
+        </div>
     </div>
-    
+    <button type="button" id="show-results-btn" onclick="showResults()">Check My Answers & See the Full List!</button>
+
+    <div id="final-results-box" class="results-box hidden">
+        <h2>🎉 Assessment Complete!</h2>
+        <p>Thank you for completing the assessment. You can find the complete list of the **30 Principles of Wisdom & Conduct**, including the Biblical "Why" for each correct answer, in the document below.</p>
+        
+        <p style="font-weight: bold; margin-top: 20px;">[Insert your link to the full 30-Principle PDF/document here]</p>
+
+        <div class="attribution">
+            <p>File created and formatted by <strong>Jeremey Ballen</strong> for ProsperLife365.<br>
+            All inquiries and collaboration: <a href="mailto:prosperlife365@gmail.com">prosperlife365@gmail.com</a></p>
+        </div>
+    </div>
+
     <script>
-        const form = document.getElementById('financialAssessment');
-        const scoreDisplay = document.getElementById('currentScore');
-        const checkboxes = form.querySelectorAll('input[type="checkbox"]');
-
-        function updateScore() {
-            let score = 0;
-            checkboxes.forEach(checkbox => {
-                if (checkbox.checked) {
-                    score++;
-                }
+        // JavaScript to check if all questions are answered and then reveal the results box
+        function showResults() {
+            const formContainer = document.getElementById('assessment-form');
+            const resultsBox = document.getElementById('final-results-box');
+            const submitButton = document.getElementById('show-results-btn');
+            
+            // Get all unique radio button groups
+            const radioGroups = {};
+            formContainer.querySelectorAll('input[type="radio"]').forEach(radio => {
+                radioGroups[radio.name] = true;
             });
-            scoreDisplay.textContent = score;
+            
+            let allAnswered = true;
+            // Check if at least one radio button in each group is checked
+            for (const name in radioGroups) {
+                if (!formContainer.querySelector(`input[name="${name}"]:checked`)) {
+                    allAnswered = false;
+                    break; 
+                }
+            }
+
+            if (allAnswered) {
+                // Reveal the final results box
+                resultsBox.classList.remove('hidden');
+                // Hide the submission button
+                submitButton.style.display = 'none'; 
+                
+                // Scroll to the results box for user convenience
+                resultsBox.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            } else {
+                alert('Please answer ALL 30 assessment questions before checking your results.');
+            }
         }
-
-        // Add event listeners to all checkboxes
-        checkboxes.forEach(checkbox => {
-            checkbox.addEventListener('change', updateScore);
-        });
-
-        // Initial score update
-        updateScore();
     </script>
+
 </body>
 </html>
