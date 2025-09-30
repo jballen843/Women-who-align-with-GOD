@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Godly Woman's Financial Self-Assessment</title>
+    <style>
+        body { font-family: sans-serif; max-width: 600px; margin: auto; padding: 20px; background-color: #f4f4f9; }
+        .assessment-container { background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+        h1 { color: #8b4513; text-align: center; border-bottom: 2px solid #8b4513; padding-bottom: 10px; }
+        h4 { color: #4b0082; margin-top: 25px; border-left: 5px solid #ffcc00; padding-left: 10px; }
+        .principle { display: flex; align-items: flex-start; margin-bottom: 15px; padding: 10px; border-radius: 5px; background: #fafafa; }
+        .principle:hover { background: #f0f0f5; }
+        input[type="checkbox"] { margin-right: 10px; transform: scale(1.5); min-height: 20px; margin-top: 3px; }
+        .score-box { text-align: center; margin: 30px 0; padding: 15px; border: 2px solid #006400; background: #e6ffe6; border-radius: 5px; font-size: 1.1em; font-weight: bold; }
+        .score-number { font-size: 2em; color: #006400; }
+        .scripture { font-size: 0.8em; color: #666; margin-top: 5px; display: block; }
+    </style>
+</head>
+<body>
+    <div class="assessment-container">
+        <h1>The Godly Woman's Financial Check-In (30 Principles)</h1>
+        <p style="text-align: center; font-style: italic;">Check all points you have aligned with this week. Focus on the unchecked.</p>
+
+        <div class="score-box">
+            Total Principles Aligned: <span id="currentScore" class="score-number">0</span> / 30
+        </div>
+
+        <form id="financialAssessment">
+            <h4>A. Trust, Stewardship & Contentment</h4>
+            <div class="principle"><input type="checkbox" name="principle" value="1"><label>Trustworthy: No secret spending; my husband trusts my management. <span class="scripture">($Proverbs 31:11$)</span></label></div>
+            <div class="principle"><input type="checkbox" name="principle" value="2"><label>Not Wasteful: I avoid impulse buys and look well to the household's resources. <span class="scripture">($Proverbs 31:27$)</span></label></div>
+            <div class="principle"><input type="checkbox" name="principle" value="3"><label>Content: I am content with what we have and do not covet luxuries. <span class="scripture">($Hebrews 13:5$)</span></label></div>
+            <div class="principle"><input type="checkbox" name="principle" value="4"><label>Faithful in Small: I handle small bills and budgeting details with care. <span class="scripture">($Luke 16:10$)</span></label></div>
+
+            <h4>B. Diligence & Work Ethic</h4>
+            <div class="principle"><input type="checkbox" name="principle" value="5"><label>Works Willingly: I actively contribute value (work/home care). <span class="scripture">($Proverbs 31:13$)</span></label></div>
+            <div class="principle"><input type="checkbox" name="principle" value="6"><label>Planner: I budget and prepare financially in advance; not last-minute. <span class="scripture">($Proverbs 31:15$)</span></label></div>
+            <div class="principle"><input type="checkbox" name="principle" value="7"><label>Hands-On: I take practical action in our finances; I am not idle. <span class="scripture">($Proverbs 31:19$)</span></label></div>
+            <div class="principle"><input type="checkbox" name="principle" value="8"><label>Honest Trades: All my earning/selling transactions are done with integrity. <span class="scripture">($Proverbs 31:24$)</span></label></div>
+
+            <h4>C. Wisdom in Spending & Saving</h4>
+            <div class="principle"><input type="checkbox" name="principle" value="9"><label>Wise Investor: I research and consider purchases/investments with foresight. <span class="scripture">($Proverbs 31:16$)</span></label></div>
+            <div class="principle"><input type="checkbox" name="principle" value="10"><label>Avoids Vanity: I do not waste money just to impress or for luxury-show. <span class="scripture">($1 Timothy 2:9$)</span></label></div>
+            <div class="principle"><input type="checkbox" name="principle" value="11"><label>Stores & Saves: I actively preserve resources and save for the future. <span class="scripture">($Proverbs 21:20$)</span></label></div>
+            <div class="principle"><input type="checkbox" name="principle" value="12"><label>Prepared: I ensure all necessities are financially covered in advance. <span class="scripture">($Proverbs 31:21$)</span></label></div>
+
+            <h4>D. Conduct That Impacts Finances</h4>
+            <div class="principle"><input type="checkbox" name="principle" value="13"><label>Does Good: My financial actions support and help my husband's work. <span class="scripture">($Proverbs 31:12$)</span></label></div>
+            <div class="principle"><input type="checkbox" name="principle" value="14"><label>Brings Honour: My financial conduct elevates my husband's reputation. <span class="scripture">($Proverbs 31:23$)</span></label></div>
+            <div class="principle"><input type="checkbox" name="principle" value="15"><label>Avoids Quarrels: I avoid strife about money that kills progress. <span class="scripture">($Proverbs 21:9$)</span></label></div>
+            <div class="principle"><input type="checkbox" name="principle" value="16"><label>Discreet: I keep our family's specific finances private from outsiders. <span class="scripture">($Titus 2:5$)</span></label></div>
+
+            <h4>E. Guardrails Against Financial Sin</h4>
+            <div class="principle"><input type="checkbox" name="principle" value="17"><label>Not Lazy: I contribute my effort and do not expect to be carried. <span class="scripture">($2 Thessalonians 3:10$)</span></label></div>
+            <div class="principle"><input type="checkbox" name="principle" value="18"><label>Not Greedy: I do not pressure my husband toward dishonest gains. <span class="scripture">($1 Timothy 6:9-10$)</span></label></div>
+            <div class="principle"><input type="checkbox" name="principle" value="19"><label>Avoids Debt: I actively resist credit addiction and reckless borrowing. <span class="scripture">($Romans 13:8$)</span></label></div>
+            <div class="principle"><input type="checkbox" name="principle" value="20"><label>No Manipulation: I do not guilt my husband into poor financial decisions. <span class="scripture">($Proverbs 7:21$)</span></label></div>
+
+            <h4>F. Godly Fruits in Money Matters</h4>
+            <div class="principle"><input type="checkbox" name="principle" value="21"><label>Generous: I give, tithe, and share with others responsibly. <span class="scripture">($Acts 9:36$)</span></label></div>
+            <div class="principle"><input type="checkbox" name="principle" value="22"><label>Prudent: I use calculated foresight and wisdom, not mere emotion. <span class="scripture">($Proverbs 19:14$)</span></label></div>
+            <div class="principle"><input type="checkbox" name="principle" value="23"><label>Honour Through Grace: I manage with humility and avoid nagging about money. <span class="scripture">($Proverbs 11:16$)</span></label></div>
+            <div class="principle"><input type="checkbox" name="principle" value="24"><label>Strength & Foresight: My confidence comes from building long-term stability. <span class="scripture">($Proverbs 31:25$)</span></label></div>
+
+            <h4>G. NT Household Alignment</h4>
+            <div class="principle"><input type="checkbox" name="principle" value="25"><label>Guides the House: I maintain order (bills, food, priorities). <span class="scripture">($1 Timothy 5:14$)</span></label></div>
+            <div class="principle"><input type="checkbox" name="principle" value="26"><label>Keeps the Home: I actively guard our home resources, using them wisely. <span class="scripture">($Titus 2:5$)</span></label></div>
+            <div class="principle"><input type="checkbox" name="principle" value="27"><label>Unity: I work with my husband’s leadership; I do not undermine his decisions. <span class="scripture">($Colossians 3:18$)</span></label></div>
+
+            <h4>H. Long-Term Fruits</h4>
+            <div class="principle"><input type="checkbox" name="principle" value="28"><label>Builds Wealth: I seek to multiply income opportunities instead of draining them. <span class="scripture">($Proverbs 31:18$)</span></label></div>
+            <div class="principle"><input type="checkbox" name="principle" value="29"><label>Stability for Children: My planning and example bless my children's future. <span class="scripture">($Proverbs 31:28$)</span></label></div>
+            <div class="principle"><input type="checkbox" name="principle" value="30"><label>Wise Words: I use kindness and wisdom when discussing money; I do not shame. <span class="scripture">($Proverbs 31:26$)</span></label></div>
+        </form>
+
+    </div>
+    
+    <script>
+        const form = document.getElementById('financialAssessment');
+        const scoreDisplay = document.getElementById('currentScore');
+        const checkboxes = form.querySelectorAll('input[type="checkbox"]');
+
+        function updateScore() {
+            let score = 0;
+            checkboxes.forEach(checkbox => {
+                if (checkbox.checked) {
+                    score++;
+                }
+            });
+            scoreDisplay.textContent = score;
+        }
+
+        // Add event listeners to all checkboxes
+        checkboxes.forEach(checkbox => {
+            checkbox.addEventListener('change', updateScore);
+        });
+
+        // Initial score update
+        updateScore();
+    </script>
+</body>
+</html>
