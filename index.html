@@ -2,13 +2,13 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Women Who Align with God - Sacred Quiz</title>
+  <title>Biblical Womanhood Interactive Quiz</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
-      background: linear-gradient(120deg, #f8fafc 60%, #d1c4e9 100%);
-      font-family: 'Georgia', serif;
-      color: #4e3160;
+      background: linear-gradient(135deg, #d4fcfc 0%, #fceabb 100%);
+      font-family: 'Segoe UI', 'Georgia', serif;
+      color: #254441;
       margin: 0;
       min-height: 100vh;
       display: flex;
@@ -16,226 +16,232 @@
       justify-content: center;
     }
     .quiz-container {
-      background: rgba(255,255,255,0.97);
+      background: rgba(255,255,255,0.98);
       border-radius: 22px;
-      box-shadow: 0 8px 32px rgba(76, 50, 102, 0.20);
-      padding: 2.5em 2.5em 2em 2.5em;
-      max-width: 600px;
+      box-shadow: 0 8px 32px rgba(41, 128, 185, 0.14);
+      padding: 2.3em 1.2em 2em 1.2em;
+      max-width: 560px;
       width: 100%;
       text-align: center;
-      border: 3px solid #e1bee7;
-      position: relative;
+      border: 3px solid #2ec4b6;
       z-index: 2;
+      position: relative;
+      margin: 2em 1em;
     }
     h1 {
-      font-family: 'Papyrus', 'Georgia', serif;
-      color: #a682b8;
-      margin-bottom: 0.5em;
-      letter-spacing: 1.5px;
-      font-size: 2.2em;
-      text-shadow: 0 2px 6px #fffde780;
+      font-family: 'Georgia', serif;
+      color: #ee6c4d;
+      letter-spacing: 1.2px;
+      font-size: 2em;
+      margin-bottom: 0.3em;
+      text-shadow: 0 2px 6px #b8e1dd80;
     }
     .halo {
       display: inline-block;
-      margin-bottom: 0.4em;
+      margin-bottom: 0.3em;
       font-size: 2em;
-      filter: drop-shadow(0 2px 6px #fffde7b0);
+      filter: drop-shadow(0 2px 6px #fceabb80);
+    }
+    .progress-bar-bg {
+      width: 100%;
+      height: 17px;
+      border-radius: 10px;
+      background: #e0fbfc;
+      margin: 0.6em 0 1.2em 0;
+      overflow: hidden;
+    }
+    .progress-bar {
+      height: 100%;
+      background: linear-gradient(90deg, #2ec4b6 60%, #ee6c4d 100%);
+      transition: width 0.5s;
+      border-radius: 10px;
     }
     .question {
-      font-size: 1.18em;
-      margin: 1.3em 0 0.8em 0;
+      font-size: 1.08em;
+      margin: 1.1em 0 0.6em 0;
       font-weight: bold;
-      color: #8456a7;
+      color: #254441;
       text-align: left;
-      text-shadow: 0 1px 3px #fffde7a0;
     }
     .options label {
       display: block;
-      background: #f3e5f5;
+      background: #cbf3f0;
       margin: 0.5em 0;
-      padding: 0.6em 0.8em;
-      border-radius: 12px;
+      padding: 0.7em 0.8em;
+      border-radius: 10px;
       cursor: pointer;
       border: 2px solid transparent;
       transition: border 0.2s, background 0.2s;
       text-align: left;
       font-size: 1em;
-      box-shadow: 0 1px 6px #e1bee7a0;
+      box-shadow: 0 1px 4px #b8e1dd80;
     }
     .options input[type="radio"] {
       margin-right: 0.7em;
     }
-    .options label:hover, .options input[type="radio":checked + label {
-      border: 2px solid #b39ddb;
-      background: #ede7f6;
+    .options label.selected {
+      border: 2px solid #ee6c4d;
+      background: #fceabb;
     }
-    button {
-      margin-top: 1.7em;
-      background: linear-gradient(90deg, #c7a4ff 70%, #fffde7 100%);
-      color: #4e3160;
+    .nav-btns {
+      margin-top: 1.5em;
+      display: flex;
+      justify-content: space-between;
+    }
+    .nav-btns button {
+      background: linear-gradient(90deg, #2ec4b6 80%, #ee6c4d 100%);
+      color: #254441;
       border: none;
-      padding: 0.9em 2.2em;
-      font-size: 1.1em;
-      border-radius: 12px;
+      padding: 0.7em 2.2em;
+      font-size: 1.06em;
+      border-radius: 10px;
       cursor: pointer;
       font-family: inherit;
-      box-shadow: 0 2px 10px #e1bee7b0;
+      box-shadow: 0 2px 10px #b8e1dd90;
       transition: background 0.2s;
     }
-    button:hover {
-      background: linear-gradient(90deg, #b39ddb 70%, #fffde7 100%);
+    .nav-btns button:disabled {
+      background: #e0fbfc;
+      color: #aaa;
+      cursor: not-allowed;
     }
     .score {
-      font-size: 1.25em;
-      color: #a682b8;
-      margin-bottom: 1em;
+      font-size: 1.22em;
+      color: #ee6c4d;
+      margin-bottom: 0.7em;
       font-weight: bold;
     }
     .answers {
       text-align: left;
       margin-top: 1.2em;
-      font-size: 1.05em;
-      color: #7d5192;
+      font-size: 1.03em;
+      color: #254441;
     }
     .answers strong {
-      color: #a682b8;
+      color: #2ec4b6;
+    }
+    .rationale {
+      font-size: 0.98em;
+      color: #666;
+      margin: 0.12em 0 0.7em 0;
+      background: #e0fbfc;
+      border-radius: 8px;
+      padding: 0.4em 0.8em;
     }
     .sacred-divider {
       border: 0;
       height: 2px;
-      background: linear-gradient(90deg, #a682b8 40%, #fffde7 60%);
+      background: linear-gradient(90deg, #2ec4b6 40%, #ee6c4d 60%);
       margin: 2em 0 1em 0;
     }
-    .sacred-bg {
-      position: fixed;
-      top: 0; left: 0; width: 100vw; height: 100vh;
-      z-index: 0;
-      background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=900&q=80');
-      background-size: cover;
-      background-repeat: no-repeat;
-      opacity: 0.17;
-      pointer-events: none;
-    }
-    @media (max-width: 650px) {
+    @media (max-width: 600px) {
       .quiz-container {
-        max-width: 96vw;
-        padding: 1.1em 0.2em 1.7em 0.2em;
+        max-width: 98vw;
+        padding: 0.8em 0.1em 1.3em 0.1em;
       }
-      .sacred-bg { display: none; }
     }
   </style>
 </head>
 <body>
-  <div class="sacred-bg"></div>
   <div class="quiz-container">
-    <div class="halo">👑✨</div>
-    <h1>Women Who Align with God</h1>
-    <form id="quizForm">
-      <div id="quiz"></div>
-      <button type="submit">Submit Answers</button>
+    <div class="halo">🌿✨</div>
+    <h1>Biblical Womanhood Interactive Quiz</h1>
+    <div class="progress-bar-bg">
+      <div id="progress-bar" class="progress-bar" style="width:0%;"></div>
+    </div>
+    <form id="quizForm" autocomplete="off">
+      <div id="question-card"></div>
+      <div class="nav-btns">
+        <button type="button" id="prevBtn">Previous</button>
+        <button type="button" id="nextBtn">Next</button>
+        <button type="submit" id="submitBtn" style="display:none;">Submit</button>
+      </div>
     </form>
     <div id="results" style="display:none"></div>
   </div>
   <script>
-    // 30 sacred-themed multiple choice questions about women of faith
-    const quizQuestions = [
-      { question: "Who was the mother of Isaac and the wife of Abraham?", options: ["Sarah", "Rebekah", "Rachel", "Leah"], answer: 0 },
-      { question: "Which courageous queen saved her people from destruction?", options: ["Ruth", "Esther", "Deborah", "Hannah"], answer: 1 },
-      { question: "Who stayed loyal to her mother-in-law, Naomi, saying 'Your God will be my God'?", options: ["Mary", "Martha", "Ruth", "Elizabeth"], answer: 2 },
-      { question: "Who was the first woman created by God?", options: ["Sarah", "Eve", "Esther", "Deborah"], answer: 1 },
-      { question: "Who was the mother of Samuel, who prayed earnestly for a son?", options: ["Hannah", "Leah", "Mary", "Abigail"], answer: 0 },
-      { question: "Which woman became the mother of Jesus?", options: ["Mary", "Miriam", "Anna", "Lydia"], answer: 0 },
-      { question: "Who was turned into a pillar of salt when she looked back at Sodom?", options: ["Lot's wife", "Naomi", "Rachel", "Leah"], answer: 0 },
-      { question: "Who was Jacob's beloved wife and the mother of Joseph and Benjamin?", options: ["Leah", "Rebekah", "Rachel", "Dinah"], answer: 2 },
-      { question: "Who was the sister of Moses and Aaron and a prophetess?", options: ["Miriam", "Sarah", "Esther", "Huldah"], answer: 0 },
-      { question: "Which woman sat at Jesus' feet and listened to His teaching?", options: ["Martha", "Mary of Bethany", "Mary Magdalene", "Priscilla"], answer: 1 },
-      { question: "Who was the first to witness the resurrection of Jesus?", options: ["Mary Magdalene", "Joanna", "Salome", "Martha"], answer: 0 },
-      { question: "Who was the wife of Isaac and the mother of Jacob and Esau?", options: ["Rachel", "Rebekah", "Leah", "Sarah"], answer: 1 },
-      { question: "Which wise woman stopped David from avenging himself on her foolish husband, Nabal?", options: ["Abigail", "Bathsheba", "Tamar", "Rahab"], answer: 0 },
-      { question: "Who was the judge and prophetess who led Israel to victory?", options: ["Deborah", "Esther", "Jael", "Hannah"], answer: 0 },
-      { question: "Who hid the Israelite spies in Jericho, showing great faith?", options: ["Rahab", "Ruth", "Naomi", "Leah"], answer: 0 },
-      { question: "Who was the businesswoman and seller of purple in Philippi, baptized by Paul?", options: ["Phoebe", "Priscilla", "Lydia", "Lois"], answer: 2 },
-      { question: "Who was the daughter-in-law of Tamar's first husband, who later gave birth to Perez and Zerah?", options: ["Ruth", "Tamar", "Bathsheba", "Deborah"], answer: 1 },
-      { question: "Who anointed Jesus' feet with expensive perfume and wiped them with her hair?", options: ["Mary Magdalene", "Mary of Bethany", "Joanna", "Salome"], answer: 1 },
-      { question: "Who was the first convert to Christianity in Europe?", options: ["Dorcas", "Lydia", "Priscilla", "Chloe"], answer: 1 },
-      { question: "Who was the faithful grandmother of Timothy, mentioned by Paul?", options: ["Phoebe", "Lois", "Claudia", "Tabitha"], answer: 1 },
-      { question: "Who is known for her encounter with Jesus at the well, where He revealed He was the Messiah?", options: ["The Samaritan woman", "Martha", "Priscilla", "Anna"], answer: 0 },
-      { question: "Who was the wife of Aquila and helped instruct Apollos?", options: ["Priscilla", "Phoebe", "Lydia", "Chloe"], answer: 0 },
-      { question: "Who was healed by Jesus after suffering for 12 years with bleeding?", options: ["The Samaritan woman", "The woman with the issue of blood", "Anna", "Tabitha"], answer: 1 },
-      { question: "Who was the Roman deaconess commended by Paul in Romans 16?", options: ["Lydia", "Phoebe", "Priscilla", "Dorcas"], answer: 1 },
-      { question: "Who was the widow raised from the dead by Peter?", options: ["Dorcas (Tabitha)", "Anna", "Joanna", "Martha"], answer: 0 },
-      { question: "Which elderly prophetess recognized Jesus as the Messiah in the temple?", options: ["Anna", "Priscilla", "Phoebe", "Chloe"], answer: 0 },
-      { question: "Who was the mother of John the Baptist?", options: ["Elizabeth", "Mary", "Anna", "Joanna"], answer: 0 },
-      { question: "Who was the wife of Pontius Pilate, who warned him about Jesus in a dream?", options: ["Salome", "Claudia", "Joanna", "Priscilla"], answer: 1 },
-      { question: "Who was the mother of Samuel and dedicated him to the Lord's service?", options: ["Hannah", "Sarah", "Rebekah", "Leah"], answer: 0 },
-      { question: "Who was the only female judge of Israel?", options: ["Deborah", "Esther", "Ruth", "Huldah"], answer: 0 },
-      { question: "Who was the wife of Uriah and later became the mother of Solomon?", options: ["Bathsheba", "Abigail", "Tamar", "Rachel"], answer: 0 }
-    ];
+    // Your custom 15 questions directly from your data
+    const quizQuestions = [...];
 
-    function renderQuiz() {
-      const quizDiv = document.getElementById('quiz');
-      quizDiv.innerHTML = '';
-      quizQuestions.forEach((q, idx) => {
-        const qDiv = document.createElement('div');
-        qDiv.className = 'question-block';
-        qDiv.innerHTML = `
-          <div class="question">${idx + 1}. ${q.question}</div>
-          <div class="options">
-            ${q.options.map((opt, oidx) => `
-              <input type="radio" name="q${idx}" id="q${idx}o${oidx}" value="${oidx}">
-              <label for="q${idx}o${oidx}">${opt}</label>
-            `).join('')}
-          </div>
-        `;
-        quizDiv.appendChild(qDiv);
-      });
+    let current = 0;
+    let userAnswers = Array(quizQuestions.length).fill(null);
+    let submitted = false;
+
+    function renderProgress() {
+      const bar = document.getElementById('progress-bar');
+      bar.style.width = `${((current) / quizQuestions.length) * 100}%`;
     }
 
-    function handleSubmit(e) {
+    function renderQuestion() {
+      if (submitted) return;
+      renderProgress();
+      const q = quizQuestions[current];
+      let opts = q.options.map((opt, i) => `
+        <input type="radio" name="option" id="opt${i}" value="${i}" ${userAnswers[current] === i ? "checked" : ""} ${submitted ? "disabled" : ""}>
+        <label for="opt${i}" class="${userAnswers[current] === i ? "selected" : ""}">${opt}</label>
+      `).join('');
+      document.getElementById('question-card').innerHTML = `
+        <div class="question">Q${current + 1}. ${q.question}</div>
+        <div class="options">${opts}</div>
+      `;
+      document.getElementById('prevBtn').disabled = current === 0;
+      document.getElementById('nextBtn').style.display = current === quizQuestions.length - 1 ? "none" : "";
+      document.getElementById('submitBtn').style.display = current === quizQuestions.length - 1 ? "" : "none";
+    }
+
+    function collectAnswer() {
+      const selected = document.querySelector('input[name="option"]:checked');
+      userAnswers[current] = selected ? parseInt(selected.value, 10) : null;
+    }
+
+    document.getElementById('prevBtn').onclick = () => {
+      collectAnswer();
+      if (current > 0) current--;
+      renderQuestion();
+    };
+    document.getElementById('nextBtn').onclick = () => {
+      collectAnswer();
+      if (current < quizQuestions.length - 1) current++;
+      renderQuestion();
+    };
+
+    document.getElementById('quizForm').onsubmit = function(e) {
       e.preventDefault();
-      let score = 0;
-      let answersHTML = '';
-      let incomplete = false;
-      const userAnswers = [];
-
-      quizQuestions.forEach((q, idx) => {
-        const selected = document.querySelector(`input[name="q${idx}"]:checked`);
-        if (!selected) {
-          incomplete = true;
-        }
-        const ansIdx = selected ? parseInt(selected.value, 10) : null;
-        userAnswers.push(ansIdx);
-        if (ansIdx === q.answer) score++;
-      });
-
-      if (incomplete) {
-        alert("Please answer all questions before submitting.");
+      collectAnswer();
+      if (userAnswers.includes(null)) {
+        alert('Please answer all questions before submitting.');
         return;
       }
+      submitted = true;
+      showResults();
+    };
 
-      answersHTML += '<hr class="sacred-divider">';
-      answersHTML += '<div class="answers"><strong>Correct Answers:</strong><br>';
+    function showResults() {
+      // Show 1. Score, 2. Answers with rationale
+      let score = 0;
+      let answersHTML = '<hr class="sacred-divider">';
       quizQuestions.forEach((q, idx) => {
-        const userAns = userAnswers[idx];
-        const correct = q.answer === userAns;
+        const correct = userAnswers[idx] === q.answer;
+        if (correct) score++;
         answersHTML += `<div>
           <strong>Q${idx+1}:</strong> ${q.question}<br>
-          <span style="color:${correct ? '#388e3c':'#d32f2f'}">
-            Your answer: ${userAns !== null ? q.options[userAns] : 'None'}
+          <span style="color:${correct ? '#2ec4b6':'#ee6c4d'}">
+            Your answer: ${userAnswers[idx] !== null ? q.options[userAnswers[idx]] : 'None'}
             ${correct ? '✔️' : '❌'}
           </span><br>
           <span>Correct answer: <b>${q.options[q.answer]}</b></span>
+          <div class="rationale">${q.rationale}</div>
         </div><br>`;
       });
-      answersHTML += "</div>";
-
+      const percentScore = Math.round((score / quizQuestions.length) * 100);
+      answersHTML = `<div class="score">Your Score: ${score} / ${quizQuestions.length} (${percentScore}%)</div>` + answersHTML;
       document.getElementById('results').style.display = '';
-      document.getElementById('results').innerHTML = `<div class="score">Your Score: ${score} / ${quizQuestions.length}</div>${answersHTML}`;
+      document.getElementById('results').innerHTML = answersHTML;
       document.getElementById('quizForm').style.display = "none";
+      document.getElementById('progress-bar').style.width = "100%";
     }
 
-    document.getElementById('quizForm').addEventListener('submit', handleSubmit);
-    renderQuiz();
+    renderQuestion();
   </script>
 </body>
 </html>
