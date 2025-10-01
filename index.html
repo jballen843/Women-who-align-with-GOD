@@ -6,9 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
   <style>
     body {
-      background: linear-gradient(135deg, #d4fcfc 0%, #fceabb 100%);
-      font-family: 'Segoe UI', 'Georgia', serif;
-      color: #254441;
+      background: linear-gradient(135deg, #f7fafc 0%, #fffbe6 100%);
+      font-family: 'Georgia', 'Segoe UI', serif;
+      color: #273c75;
       margin: 0;
       min-height: 100vh;
       display: flex;
@@ -16,66 +16,64 @@
       justify-content: center;
     }
     .quiz-container {
-      background: rgba(255,255,255,0.98);
-      border-radius: 22px;
-      box-shadow: 0 8px 32px rgba(41, 128, 185, 0.14);
+      background: rgba(255,255,255,0.99);
+      border-radius: 20px;
+      box-shadow: 0 8px 32px rgba(52, 84, 209, 0.11);
       padding: 1.3em 0.5em 1.2em 0.5em;
       max-width: 99vw;
       width: 100%;
       text-align: center;
-      border: 3px solid #2ec4b6;
-      z-index: 2;
-      position: relative;
+      border: 3px solid #d4af37;
       margin: 1em 0.2em;
     }
     h1 {
       font-family: 'Georgia', serif;
-      color: #ee6c4d;
-      letter-spacing: 1.2px;
-      font-size: 1.5em;
+      color: #3454d1;
+      letter-spacing: 1.6px;
+      font-size: 1.6em;
       margin-bottom: 0.2em;
-      text-shadow: 0 2px 6px #b8e1dd80;
+      text-shadow: 0 2px 6px #fffbe6b0;
     }
     .halo {
       display: inline-block;
       margin-bottom: 0.3em;
       font-size: 2em;
-      filter: drop-shadow(0 2px 6px #fceabb80);
+      filter: drop-shadow(0 2px 6px #fff9c480);
     }
     .progress-bar-bg {
       width: 100%;
-      height: 17px;
+      height: 16px;
       border-radius: 10px;
-      background: #e0fbfc;
+      background: #e3e9fc;
       margin: 0.6em 0 1.2em 0;
       overflow: hidden;
     }
     .progress-bar {
       height: 100%;
-      background: linear-gradient(90deg, #2ec4b6 60%, #ee6c4d 100%);
+      background: linear-gradient(90deg, #d4af37 0%, #3454d1 100%);
       transition: width 0.5s;
       border-radius: 10px;
     }
     .question {
-      font-size: 1.04em;
+      font-size: 1.05em;
       margin: 1em 0 0.6em 0;
       font-weight: bold;
-      color: #254441;
+      color: #3454d1;
       text-align: left;
     }
     .options label {
       display: flex;
       align-items: center;
-      background: #cbf3f0;
+      background: #f2f6ff;
       margin: 0.5em 0;
       padding: 1em 0.8em;
-      border-radius: 10px;
+      border-radius: 11px;
       cursor: pointer;
       border: 2px solid transparent;
       transition: border 0.2s, background 0.2s;
       text-align: left;
       font-size: 1em;
-      box-shadow: 0 1px 4px #b8e1dd80;
+      box-shadow: 0 1px 4px #e3e9fc80;
       min-height: 44px;
       min-width: 44px;
       user-select: none;
@@ -83,14 +81,16 @@
     }
     .options input[type="radio"] {
       margin-right: 1em;
-      width: 1.4em;
-      height: 1.4em;
-      accent-color: #ee6c4d;
+      width: 1.3em;
+      height: 1.3em;
+      accent-color: #d4af37;
       flex-shrink: 0;
+      cursor: pointer;
     }
     .options label.selected {
-      border: 2px solid #ee6c4d;
-      background: #fceabb;
+      border: 2px solid #d4af37;
+      background: #fffbe6;
+      color: #b78615;
     }
     .nav-btns {
       margin-top: 1.5em;
@@ -100,27 +100,29 @@
       flex-wrap: wrap;
     }
     .nav-btns button {
-      background: linear-gradient(90deg, #2ec4b6 80%, #ee6c4d 100%);
-      color: #254441;
+      background: linear-gradient(90deg, #d4af37 80%, #3454d1 100%);
+      color: #fff;
       border: none;
       padding: 0.82em 1.8em;
       font-size: 1.09em;
       border-radius: 12px;
       cursor: pointer;
       font-family: inherit;
-      box-shadow: 0 2px 10px #b8e1dd90;
+      box-shadow: 0 2px 10px #f3edd6b0;
       transition: background 0.2s, color 0.2s;
       min-width: 40vw;
       margin: 0.2em 0;
+      font-weight: bold;
+      letter-spacing: 0.5px;
     }
     .nav-btns button:disabled {
-      background: #e0fbfc;
+      background: #e3e9fc;
       color: #aaa;
       cursor: not-allowed;
     }
     .score {
       font-size: 1.16em;
-      color: #ee6c4d;
+      color: #3454d1;
       margin-bottom: 0.7em;
       font-weight: bold;
     }
@@ -128,23 +130,24 @@
       text-align: left;
       margin-top: 1.2em;
       font-size: 1.01em;
-      color: #254441;
+      color: #273c75;
     }
     .answers strong {
-      color: #2ec4b6;
+      color: #3454d1;
     }
     .rationale {
       font-size: 0.98em;
-      color: #666;
+      color: #3454d1;
       margin: 0.12em 0 0.7em 0;
-      background: #e0fbfc;
+      background: #e3e9fc;
       border-radius: 8px;
       padding: 0.4em 0.8em;
+      border-left: 4px solid #d4af37;
     }
     .sacred-divider {
       border: 0;
       height: 2px;
-      background: linear-gradient(90deg, #2ec4b6 40%, #ee6c4d 60%);
+      background: linear-gradient(90deg, #d4af37 40%, #3454d1 60%);
       margin: 2em 0 1em 0;
     }
     @media (min-width: 600px) {
@@ -156,7 +159,7 @@
 </head>
 <body>
   <div class="quiz-container">
-    <div class="halo">🌿✨</div>
+    <div class="halo">🕊️✨</div>
     <h1>Biblical Womanhood Interactive Quiz</h1>
     <div class="progress-bar-bg">
       <div id="progress-bar" class="progress-bar" style="width:0%;"></div>
@@ -172,94 +175,265 @@
     <div id="results" style="display:none"></div>
   </div>
   <script>
-    const quizQuestions = [ ... ]; // shortened for brevity, will be expanded in actual push
+    window.onload = function() {
+      const quizQuestions = [
+        {
+          question: "The Bible states that a woman's most valuable adornment is found in cultivating 'the hidden man of the heart.' Which specific character trait is highlighted as being of 'great price' in the sight of God (1 Peter 3:4)?",
+          options: [
+            "A strong and courageous spirit.",
+            "A meek and quiet spirit.",
+            "A cheerful and hospitable spirit.",
+            "An eloquent and wise spirit."
+          ],
+          answer: 1,
+          rationale: "1 Peter 3:4 (KJV) explicitly identifies the inner, spiritual quality that is 'of great price' in God's sight as 'the ornament of a meek and quiet spirit.' This is presented as the woman's most valuable form of adornment."
+        },
+        {
+          question: "The instruction for younger women to be 'obedient to their own husbands' and 'keepers at home' is given for what explicit missional purpose (Titus 2:5)?",
+          options: [
+            "To secure their financial future and inheritance.",
+            "That the word of God be not blasphemed.",
+            "To receive greater rewards in the kingdom of heaven.",
+            "So they may avoid the error of the wicked."
+          ],
+          answer: 1,
+          rationale: "Titus 2:5 provides the reason: 'that the word of God be not blasphemed.' This shows a woman's domestic conduct and obedience reflect directly upon the credibility of the Gospel message."
+        },
+        {
+          question: "The disputed rule in 1 Corinthians 14:34 commands women to 'keep silence in the churches.' If they have a question they wish to ask, what are they instructed to do (1 Corinthians 14:35)?",
+          options: [
+            "Ask an older woman after the service has ended.",
+            "Write down their question and submit it to the elders.",
+            "Wait for a natural pause in the service to speak briefly.",
+            "Ask their husbands at home."
+          ],
+          answer: 3,
+          rationale: "1 Corinthians 14:35 (KJV) states: 'And if they will learn any thing, let them ask their husbands at home...'"
+        },
+        {
+          question: "According to 1 Timothy 2:12, a woman is 'not permitted' to perform two specific actions over a man. What are these actions?",
+          options: [
+            "To prophesy, nor to lead in public prayer.",
+            "To teach, nor to usurp authority.",
+            "To sing, nor to read from the Holy Scriptures.",
+            "To travel, nor to buy or sell commercial goods."
+          ],
+          answer: 1,
+          rationale: "1 Timothy 2:12 (KJV) contains the dual prohibition: 'But I suffer not a woman to teach, nor to usurp authority over the man, but to be in silence.'"
+        },
+        {
+          question: "The overlooked implication in 1 Timothy 2:9 is that modest apparel must be accompanied by two specific virtues that define her disciplined demeanor and attitude. These are 'shamefacedness' (modesty/respect) and what other quality (KJV)?",
+          options: [
+            "Zealousness.",
+            "Cheerfulness.",
+            "Sobriety.",
+            "Eloquence."
+          ],
+          answer: 2,
+          rationale: "1 Timothy 2:9 (KJV) commands women to adorn themselves with 'modest apparel, with shamefacedness and sobriety.' Sobriety refers to sound judgment and self-control."
+        },
+        {
+          question: "The woman's original designation in Genesis 2:18 is Ezer ('help meet' or 'helper'). What quality of this Hebrew term is often overlooked, given that it is used elsewhere in the Old Testament to describe God's relationship with Israel?",
+          options: [
+            "The quality of total servitude and passivity.",
+            "The quality of powerful, indispensable, and complementary strength.",
+            "The quality of being perpetually subordinate to all of man’s commands.",
+            "The quality of spiritual leadership and prophecy."
+          ],
+          answer: 1,
+          rationale: "The Hebrew word Ezer is most frequently used to describe God as Israel's essential strength or life-saver, implying the wife is a strong, indispensable ally."
+        },
+        {
+          question: "To avoid focus on outward show, 1 Timothy 2:9 explicitly discourages adornment with what three categories of accessories?",
+          options: [
+            "Expensive robes, fragrant oils, and engraved rings.",
+            "Painted faces, silk garments, and silver chains.",
+            "Braided hair, gold, or pearls, or costly array.",
+            "Woven cloth, dyed garments, and high-heeled sandals."
+          ],
+          answer: 2,
+          rationale: "1 Timothy 2:9 specifies 'Braided hair, gold, or pearls, or costly array' as the outward focuses to be avoided as primary adornment."
+        },
+        {
+          question: "Ephesians 5:22 commands wives to 'submit yourselves unto your own husbands.' To what higher, spiritual relationship is this submission compared?",
+          options: [
+            "As the body is subject to the head in all natural functions.",
+            "As a servant submits to a benevolent master.",
+            "As unto the Lord.",
+            "As the Israelites submitted to Moses."
+          ],
+          answer: 2,
+          rationale: "Ephesians 5:22 directly states the submission should be modeled 'as unto the Lord,' giving the action profound spiritual significance."
+        },
+        {
+          question: "In 1 Timothy 5:13, Paul warns against idle women (younger widows) who become 'tattlers and busybodies.' What general behavior is being condemned as a spiritual danger for women lacking a purposeful vocation?",
+          options: [
+            "Speaking things which they ought not.",
+            "Neglecting their daily prayers and scripture reading.",
+            "Working outside the home for wages.",
+            "Wearing extravagant jewelry and fine clothes."
+          ],
+          answer: 0,
+          rationale: "1 Timothy 5:13 (KJV) describes the outcome: busybodies 'speaking things which they ought not,' condemning idle gossip and undisciplined speech."
+        },
+        {
+          question: "According to 1 Corinthians 11:5, what specific action, if done by a woman 'uncovered,' brings 'dishonour' upon her head?",
+          options: [
+            "Singing a hymn during the corporate worship service.",
+            "Reading the Scripture for the entire congregation.",
+            "Praying or prophesying in the assembly.",
+            "Giving a testimony of a miracle she received."
+          ],
+          answer: 2,
+          rationale: "1 Corinthians 11:5 lists the two explicit actions—'praying or prophesying'—which require a 'covering' as a sign of accepted authority structure."
+        },
+        {
+          question: "The overlooked financial guideline from Proverbs 31 describes the Virtuous Woman as actively engaged in what specific commercial action?",
+          options: [
+            "She 'considereth a field, and buyeth it.'",
+            "She manages the King's treasury and finances.",
+            "She commands her servants to bring back goods from foreign lands.",
+            "She makes sure to avoid paying all taxes and tariffs."
+          ],
+          answer: 0,
+          rationale: "Proverbs 31:16 (KJV) details her financial diligence: 'She considereth a field, and buyeth it,' showing she is a shrewd financial manager and entrepreneur."
+        },
+        {
+          question: "The most controversial instruction states that a woman 'shall be saved in childbearing.' What three continuing virtues are explicitly listed as necessary conditions for this promise to be realized (1 Timothy 2:15)?",
+          options: [
+            "Faith, hope, and charity.",
+            "Meekness, quietness, and subjection.",
+            "Patience, wisdom, and diligence.",
+            "Faith and charity and holiness with sobriety."
+          ],
+          answer: 3,
+          rationale: "1 Timothy 2:15 requires the woman to 'continue in faith and charity and holiness with sobriety' for the promise to be realized."
+        },
+        {
+          question: "Titus 2:4 instructs 'aged women' to teach 'the young women' two specific relational duties: to be sober, and to love whom?",
+          options: [
+            "To love their church, and to love their neighbors.",
+            "To love their own souls, and to love the truth.",
+            "To love their husbands, to love their children.",
+            "To love the poor, and to love the widow."
+          ],
+          answer: 2,
+          rationale: "Titus 2:4 instructs women to be taught to 'love their husbands, to love their children,' placing the highest priority on the familial unit."
+        },
+        {
+          question: "The Greek word for 'usurp authority' (*authentein*) in 1 Timothy 2:12 is rare and may mean to domineer or act with self-derived authority. What characteristic does this overlooked interpretation suggest the restriction is specifically targeting?",
+          options: [
+            "The restriction is targeting the woman's lack of theological education.",
+            "The restriction is targeting a domineering or presumptuous use of authority.",
+            "The restriction is targeting women who are foreign converts.",
+            "The restriction is targeting the woman's financial independence."
+          ],
+          answer: 1,
+          rationale: "Interpreting *authentein* as 'to domineer' suggests the restriction is on the *spirit* and *manner* in which authority is exercised (arrogantly), rather than a total prohibition on all instruction."
+        },
+        {
+          question: "What is the primary way a woman 'professing godliness' is instructed to adorn herself, demonstrating that her faith is active (1 Timothy 2:10)?",
+          options: [
+            "By wearing a head covering.",
+            "By displaying meekness and quietness.",
+            "By engaging in good works.",
+            "By having many children."
+          ],
+          answer: 2,
+          rationale: "1 Timothy 2:10 states women should 'adorn themselves with good works,' making ethical, visible service the chief outward expression of a Christian woman's faith."
+        }
+      ];
 
-    let current = 0;
-    let userAnswers = Array(quizQuestions.length).fill(null);
-    let submitted = false;
+      let current = 0;
+      let userAnswers = Array(quizQuestions.length).fill(null);
+      let submitted = false;
 
-    function renderProgress() {
-      const bar = document.getElementById('progress-bar');
-      bar.style.width = `${((current) / quizQuestions.length) * 100}%`;
-    }
-
-    function renderQuestion() {
-      if (submitted) return;
-      renderProgress();
-      const q = quizQuestions[current];
-      let opts = q.options.map((opt, i) => `
-        <label for="opt${i}" class="${userAnswers[current] === i ? "selected" : ""}">
-          <input type="radio" name="option" id="opt${i}" value="${i}" ${userAnswers[current] === i ? "checked" : ""} tabindex="0" aria-label="${opt}"> ${opt}
-        </label>
-      `).join('');
-      document.getElementById('question-card').innerHTML = `
-        <div class="question">Q${current + 1}. ${q.question}</div>
-        <div class="options">${opts}</div>
-      `;
-      document.getElementById('prevBtn').disabled = current === 0;
-      document.getElementById('nextBtn').style.display = current === quizQuestions.length - 1 ? "none" : "";
-      document.getElementById('submitBtn').style.display = current === quizQuestions.length - 1 ? "" : "none";
-      // Touch/click handler for mobile: label click sets answer and highlights
-      document.querySelectorAll('.options label').forEach((label, i) => {
-        label.onclick = () => {
-          userAnswers[current] = i;
-          renderQuestion();
-        };
-      });
-    }
-
-    function collectAnswer() {
-      const selected = document.querySelector('input[name="option"]:checked');
-      userAnswers[current] = selected ? parseInt(selected.value, 10) : null;
-    }
-
-    document.getElementById('prevBtn').onclick = () => {
-      collectAnswer();
-      if (current > 0) current--;
-      renderQuestion();
-    };
-    document.getElementById('nextBtn').onclick = () => {
-      collectAnswer();
-      if (current < quizQuestions.length - 1) current++;
-      renderQuestion();
-    };
-
-    document.getElementById('quizForm').onsubmit = function(e) {
-      e.preventDefault();
-      collectAnswer();
-      if (userAnswers.includes(null)) {
-        alert('Please answer all questions before submitting.');
-        return;
+      function renderProgress() {
+        const bar = document.getElementById('progress-bar');
+        bar.style.width = `${((current) / quizQuestions.length) * 100}%`;
       }
-      submitted = true;
-      showResults();
+
+      function renderQuestion() {
+        if (submitted) return;
+        renderProgress();
+        const q = quizQuestions[current];
+        let opts = q.options.map((opt, i) => `
+          <label for="opt${i}" class="${userAnswers[current] === i ? "selected" : ""}">
+            <input type="radio" name="option" id="opt${i}" value="${i}" ${userAnswers[current] === i ? "checked" : ""} tabindex="0" aria-label="${opt}">
+            ${opt}
+          </label>
+        `).join('');
+        document.getElementById('question-card').innerHTML = `
+          <div class="question">Q${current + 1}. ${q.question}</div>
+          <div class="options">${opts}</div>
+        `;
+        document.getElementById('prevBtn').disabled = current === 0;
+        document.getElementById('nextBtn').style.display = current === quizQuestions.length - 1 ? "none" : "";
+        document.getElementById('submitBtn').style.display = current === quizQuestions.length - 1 ? "" : "none";
+        document.querySelectorAll('.options input[type="radio"]').forEach((input, i) => {
+          input.onchange = () => {
+            userAnswers[current] = i;
+            document.querySelectorAll('.options label').forEach((l, j) => {
+              if(j === i) l.classList.add("selected");
+              else l.classList.remove("selected");
+            });
+          };
+        });
+      }
+
+      function collectAnswer() {
+        const selected = document.querySelector('input[name="option"]:checked');
+        userAnswers[current] = selected ? parseInt(selected.value, 10) : null;
+      }
+
+      document.getElementById('prevBtn').onclick = () => {
+        collectAnswer();
+        if (current > 0) current--;
+        renderQuestion();
+      };
+      document.getElementById('nextBtn').onclick = () => {
+        collectAnswer();
+        if (current < quizQuestions.length - 1) current++;
+        renderQuestion();
+      };
+
+      document.getElementById('quizForm').onsubmit = function(e) {
+        e.preventDefault();
+        collectAnswer();
+        if (userAnswers.includes(null)) {
+          alert('Please answer all questions before submitting.');
+          return;
+        }
+        submitted = true;
+        showResults();
+      };
+
+      function showResults() {
+        let score = 0;
+        let answersHTML = '<hr class="sacred-divider">';
+        quizQuestions.forEach((q, idx) => {
+          const correct = userAnswers[idx] === q.answer;
+          if (correct) score++;
+          answersHTML += `<div>
+            <strong>Q${idx+1}:</strong> ${q.question}<br>
+            <span style="color:${correct ? '#3454d1':'#d4af37'}">
+              Your answer: ${userAnswers[idx] !== null ? q.options[userAnswers[idx]] : 'None'}
+              ${correct ? '✔️' : '❌'}
+            </span><br>
+            <span>Correct answer: <b>${q.options[q.answer]}</b></span>
+            <div class="rationale">${q.rationale}</div>
+          </div><br>`;
+        });
+        const percentScore = Math.round((score / quizQuestions.length) * 100);
+        answersHTML = `<div class="score">Your Score: ${score} / ${quizQuestions.length} (${percentScore}%)</div>` + answersHTML;
+        document.getElementById('results').style.display = '';
+        document.getElementById('results').innerHTML = answersHTML;
+        document.getElementById('quizForm').style.display = "none";
+        document.getElementById('progress-bar').style.width = "100%";
+      }
+
+      renderQuestion();
     };
-
-    function showResults() {
-      let score = 0;
-      let answersHTML = '<hr class="sacred-divider">';
-      quizQuestions.forEach((q, idx) => {
-        const correct = userAnswers[idx] === q.answer;
-        if (correct) score++;
-        answersHTML += `<div>
-          <strong>Q${idx+1}:</strong> ${q.question}<br>
-          <span style="color:${correct ? '#2ec4b6':'#ee6c4d'}">
-            Your answer: ${userAnswers[idx] !== null ? q.options[userAnswers[idx]] : 'None'}
-            ${correct ? '✔️' : '❌'}
-          </span><br>
-          <span>Correct answer: <b>${q.options[q.answer]}</b></span>
-          <div class="rationale">${q.rationale}</div>
-        </div><br>`;
-      });
-      const percentScore = Math.round((score / quizQuestions.length) * 100);
-      answersHTML = `<div class="score">Your Score: ${score} / ${quizQuestions.length} (${percentScore}%)</div>` + answersHTML;
-      document.getElementById('results').style.display = '';
-      document.getElementById('results').innerHTML = answersHTML;
-      document.getElementById('quizForm').style.display = "none";
-      document.getElementById('progress-bar').style.width = "100%";
-    }
-
-    renderQuestion();
   </script>
 </body>
 </html>
