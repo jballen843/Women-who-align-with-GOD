@@ -160,8 +160,23 @@
     <div id="results" style="display:none"></div>
   </div>
   <script>
-    // Your custom 15 questions directly from your data
-    const quizQuestions = [...];
+    const quizQuestions = [
+      { question: "The Bible states that a woman's most valuable adornment is found in cultivating 'the hidden man of the heart.' Which specific character trait is highlighted as being of 'great price' in the sight of God (1 Peter 3:4)?", options: ["A strong and courageous spirit.", "A meek and quiet spirit.", "A cheerful and hospitable spirit.", "An eloquent and wise spirit."], answer: 1, rationale: "1 Peter 3:4 (KJV) explicitly identifies the inner, spiritual quality that is 'of great price' in God's sight as 'the ornament of a meek and quiet spirit.' This is presented as the woman's most valuable form of adornment." },
+      { question: "The instruction for younger women to be 'obedient to their own husbands' and 'keepers at home' is given for what explicit missional purpose (Titus 2:5)?", options: ["To secure their financial future and inheritance.", "That the word of God be not blasphemed.", "To receive greater rewards in the kingdom of heaven.", "So they may avoid the error of the wicked."], answer: 1, rationale: "Titus 2:5 provides the reason: 'that the word of God be not blasphemed.' This shows a woman's domestic conduct and obedience reflect directly upon the credibility of the Gospel message." },
+      { question: "The disputed rule in 1 Corinthians 14:34 commands women to 'keep silence in the churches.' If they have a question they wish to ask, what are they instructed to do (1 Corinthians 14:35)?", options: ["Ask an older woman after the service has ended.", "Write down their question and submit it to the elders.", "Wait for a natural pause in the service to speak briefly.", "Ask their husbands at home."], answer: 3, rationale: "1 Corinthians 14:35 (KJV) states: 'And if they will learn any thing, let them ask their husbands at home..." },
+      { question: "According to 1 Timothy 2:12, a woman is 'not permitted' to perform two specific actions over a man. What are these actions?", options: ["To prophesy, nor to lead in public prayer.", "To teach, nor to usurp authority.", "To sing, nor to read from the Holy Scriptures.", "To travel, nor to buy or sell commercial goods."], answer: 1, rationale: "1 Timothy 2:12 (KJV) contains the dual prohibition: 'But I suffer not a woman to teach, nor to usurp authority over the man, but to be in silence.'" },
+      { question: "The overlooked implication in 1 Timothy 2:9 is that modest apparel must be accompanied by two specific virtues that define her disciplined demeanor and attitude. These are 'shamefacedness' (modesty/respect) and what other quality (KJV)?", options: ["Zealousness.", "Cheerfulness.", "Sobriety.", "Eloquence."], answer: 2, rationale: "1 Timothy 2:9 (KJV) commands women to adorn themselves with 'modest apparel, with shamefacedness and sobriety.' Sobriety refers to sound judgment and self-control." },
+      { question: "The woman's original designation in Genesis 2:18 is Ezer ('help meet' or 'helper'). What quality of this Hebrew term is often overlooked, given that it is used elsewhere in the Old Testament to describe God's relationship with Israel?", options: ["The quality of total servitude and passivity.", "The quality of powerful, indispensable, and complementary strength.", "The quality of being perpetually subordinate to all of man’s commands.", "The quality of spiritual leadership and prophecy."], answer: 1, rationale: "The Hebrew word Ezer is most frequently used to describe God as Israel's essential strength or life-saver, implying the wife is a strong, indispensable ally." },
+      { question: "To avoid focus on outward show, 1 Timothy 2:9 explicitly discourages adornment with what three categories of accessories?", options: ["Expensive robes, fragrant oils, and engraved rings.", "Painted faces, silk garments, and silver chains.", "Braided hair, gold, or pearls, or costly array.", "Woven cloth, dyed garments, and high-heeled sandals."], answer: 2, rationale: "1 Timothy 2:9 specifies 'Braided hair, gold, or pearls, or costly array' as the outward focuses to be avoided as primary adornment." },
+      { question: "Ephesians 5:22 commands wives to 'submit yourselves unto your own husbands.' To what higher, spiritual relationship is this submission compared?", options: ["As the body is subject to the head in all natural functions.", "As a servant submits to a benevolent master.", "As unto the Lord.", "As the Israelites submitted to Moses."], answer: 2, rationale: "Ephesians 5:22 directly states the submission should be modeled 'as unto the Lord,' giving the action profound spiritual significance." },
+      { question: "In 1 Timothy 5:13, Paul warns against idle women (younger widows) who become 'tattlers and busybodies.' What general behavior is being condemned as a spiritual danger for women lacking a purposeful vocation?", options: ["Speaking things which they ought not.", "Neglecting their daily prayers and scripture reading.", "Working outside the home for wages.", "Wearing extravagant jewelry and fine clothes."], answer: 0, rationale: "1 Timothy 5:13 (KJV) describes the outcome: busybodies 'speaking things which they ought not,' condemning idle gossip and undisciplined speech." },
+      { question: "According to 1 Corinthians 11:5, what specific action, if done by a woman 'uncovered,' brings 'dishonour' upon her head?", options: ["Singing a hymn during the corporate worship service.", "Reading the Scripture for the entire congregation.", "Praying or prophesying in the assembly.", "Giving a testimony of a miracle she received."], answer: 2, rationale: "1 Corinthians 11:5 lists the two explicit actions—'praying or prophesying'—which require a 'covering' as a sign of accepted authority structure." },
+      { question: "The overlooked financial guideline from Proverbs 31 describes the Virtuous Woman as actively engaged in what specific commercial action?", options: ["She 'considereth a field, and buyeth it.'", "She manages the King's treasury and finances.", "She commands her servants to bring back goods from foreign lands.", "She makes sure to avoid paying all taxes and tariffs."], answer: 0, rationale: "Proverbs 31:16 (KJV) details her financial diligence: 'She considereth a field, and buyeth it,' showing she is a shrewd financial manager and entrepreneur." },
+      { question: "The most controversial instruction states that a woman 'shall be saved in childbearing.' What three continuing virtues are explicitly listed as necessary conditions for this promise to be realized (1 Timothy 2:15)?", options: ["Faith, hope, and charity.", "Meekness, quietness, and subjection.", "Patience, wisdom, and diligence.", "Faith and charity and holiness with sobriety."], answer: 3, rationale: "1 Timothy 2:15 requires the woman to 'continue in faith and charity and holiness with sobriety' for the promise to be realized." },
+      { question: "Titus 2:4 instructs 'aged women' to teach 'the young women' two specific relational duties: to be sober, and to love whom?", options: ["To love their church, and to love their neighbors.", "To love their own souls, and to love the truth.", "To love their husbands, to love their children.", "To love the poor, and to love the widow."], answer: 2, rationale: "Titus 2:4 instructs women to be taught to 'love their husbands, to love their children,' placing the highest priority on the familial unit." },
+      { question: "The Greek word for 'usurp authority' (*authentein*) in 1 Timothy 2:12 is rare and may mean to domineer or act with self-derived authority. What characteristic does this overlooked interpretation suggest the restriction is specifically targeting?", options: ["The restriction is targeting the woman's lack of theological education.", "The restriction is targeting a domineering or presumptuous use of authority.", "The restriction is targeting women who are foreign converts.", "The restriction is targeting the woman's financial independence."], answer: 1, rationale: "Interpreting *authentein* as 'to domineer' suggests the restriction is on the *spirit* and *manner* in which authority is exercised (arrogantly), rather than a total prohibition on all instruction." },
+      { question: "What is the primary way a woman 'professing godliness' is instructed to adorn herself, demonstrating that her faith is active (1 Timothy 2:10)?", options: ["By wearing a head covering.", "By displaying meekness and quietness.", "By engaging in good works.", "By having many children."], answer: 2, rationale: "1 Timothy 2:10 states women should 'adorn themselves with good works,' making ethical, visible service the chief outward expression of a Christian woman's faith." }
+    ];
 
     let current = 0;
     let userAnswers = Array(quizQuestions.length).fill(null);
@@ -169,7 +184,8 @@
 
     function renderProgress() {
       const bar = document.getElementById('progress-bar');
-      bar.style.width = `${((current) / quizQuestions.length) * 100}%`;
+      bar.style.width = \
+`${((current) / quizQuestions.length) * 100}%`;
     }
 
     function renderQuestion() {
@@ -187,6 +203,13 @@
       document.getElementById('prevBtn').disabled = current === 0;
       document.getElementById('nextBtn').style.display = current === quizQuestions.length - 1 ? "none" : "";
       document.getElementById('submitBtn').style.display = current === quizQuestions.length - 1 ? "" : "none";
+      document.querySelectorAll('.options label').forEach((label, i) => {
+        label.onclick = () => {
+          document.getElementById(`opt${i}`).checked = true;
+          userAnswers[current] = i;
+          renderQuestion();
+        }
+      });
     }
 
     function collectAnswer() {
@@ -217,7 +240,6 @@
     };
 
     function showResults() {
-      // Show 1. Score, 2. Answers with rationale
       let score = 0;
       let answersHTML = '<hr class="sacred-divider">';
       quizQuestions.forEach((q, idx) => {
